@@ -1,53 +1,98 @@
 import cv2
 import numpy as np
+import math
 
 
 def nothing(x): pass
 
 
-def draw_centers(contours, image):
+def find_center_coords(contours):
     # loop over the contours
+    d = []
     for c in contours:
-        # compute the center of the contour
         M = cv2.moments(c)
         cX = int(M["m10"] / M["m00"])
         cY = int(M["m01"] / M["m00"])
+        d.append([cX, cY])
+    return d
 
-        # draw the contour and center of the shape on the image
-        cv2.drawContours(image, [c], -1, (127, 127, 127), 2)
-        cv2.circle(image, (cX, cY), 7, (255, 255, 255), -1)
 
+def draw_centers(point, image):
+    cX = point[0]
+    cY = point[1]
+
+    # draw the contour and center of the shape on the image
+    # cv2.drawContours(image, [c], -1, (127, 127, 127), 2)
+    cv2.circle(image, (cX, cY), 7, (255, 255, 255), -1)
 
 def ex_1():
+    # basic properties
     windowName = "Warcaby"
-    image = cv2.imread("plansza.png")
-    image_HSV = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    kernel = np.ones((5, 5), np.uint8)
+
+    # color ranges for checkers detection
+    hsv_green_lower = np.array([50, 100, 100])
+    hsv_green_upper = np.array([70, 255, 255])
+    hsv_red_lower = np.array([0, 100, 100])
+    hsv_red_upper = np.array([10, 255, 255])
+
+    # basic methods
     cv2.namedWindow(windowName)
 
+    # load images
+    originalRGBImage = cv2.imread("plansza.png")
+    imageBW = cv2.imread("plansza.png", cv2.IMREAD_GRAYSCALE)
+    # add border for checker fields detection
+    imageBW = cv2.copyMakeBorder(imageBW, 2,2,2,2, cv2.BORDER_CONSTANT, value=255)
+
+    image_HSV = cv2.cvtColor(originalRGBImage, cv2.COLOR_BGR2HSV)
+
+    height, width, channels = originalRGBImage.shape
+    # checker board is 8x8
+    boardTileLength = width/8
+    # magic
     while cv2.getWindowProperty(windowName, 0) >= 0:
-        green = np.uint8([[[0, 255, 0]]])  #BGR
-        red = np.uint8([[[0, 0, 255]]])  # BGR
-        hsv_green = cv2.cvtColor(green, cv2.COLOR_BGR2HSV)
-        hsv_red = cv2.cvtColor(red, cv2.COLOR_BGR2HSV)
-        # print(hsv_red)     0,255,255 HSV
-        # print(hsv_green)    60,255,255 HSV
+        # get green checkers mask
+        greenCheckersMask = cv2.inRange(image_HSV, hsv_green_lower, hsv_green_upper)
+        # get red checkers mask
+        redCheckersMask = cv2.inRange(image_HSV, hsv_red_lower, hsv_red_upper)
 
-        hsv_green_lower = np.array([50,100,100])
-        hsv_green_upper = np.array([70,255,255])
+        # remove unnecessary elements from image, leaving only the board
+        ret, imageBW = cv2.threshold(imageBW, 200, 255, cv2.THRESH_BINARY)
 
-        hsv_red_lower = np.array([0,100,100])
-        hsv_red_upper = np.array([10,255,255])
+        # checkers detection
+        im2, greenCheckersContours, hierarchy = cv2.findContours(greenCheckersMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        im2, redCheckersContours, hierarchy = cv2.findContours(redCheckersMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-        mask = cv2.inRange(image_HSV, hsv_green_lower, hsv_green_upper)
-        mask2 = cv2.inRange(image_HSV, hsv_red_lower, hsv_red_upper)
+        greenCheckersCoords = find_center_coords(greenCheckersContours)
+        redCheckersCoords = find_center_coords(redCheckersContours)
 
-        im2, contours, hierarchy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        im2, contours2, hierarchy = cv2.findContours(mask2, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        # tiles detection
+        dilation = cv2.dilate(imageBW, kernel, iterations=2)
+        im2, boardTilesContours, hierarchy = cv2.findContours(dilation, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-        draw_centers(contours, image)
-        draw_centers(contours2, image)
+        # remove biggest contour (image border)
+        # Find the index of the largest contour
+        areas = [cv2.contourArea(c) for c in boardTilesContours]
+        max_index = np.argmax(areas)
+        # remove largest contour (image border)
+        boardTilesContours.pop(max_index)
 
-        cv2.imshow(windowName, image)
+        fieldsCoords = find_center_coords(boardTilesContours)
+
+        # calc distance between checkers and their fields
+        print(greenCheckersCoords)
+        print(fieldsCoords)
+        print(boardTileLength)
+        for checkerCoord in greenCheckersCoords:
+            for fieldCoord in fieldsCoords:
+                if(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]) < boardTileLength/2):
+                    print(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]))
+                    draw_centers(checkerCoord, originalRGBImage)
+                    draw_centers(fieldCoord, originalRGBImage)
+
+        cv2.imshow(windowName, originalRGBImage)
+        cv2.imshow("Erozja", dilation)
         key = cv2.waitKey(10)
         if key == ord('q'):
             break
