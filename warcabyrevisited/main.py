@@ -31,8 +31,8 @@ def ex_1():
     kernel = np.ones((5, 5), np.uint8)
 
     # color ranges for checkers detection
-    hsv_green_lower = np.array([50, 100, 100])
-    hsv_green_upper = np.array([70, 255, 255])
+    hsv_green_lower = np.array([30, 0, 100])
+    hsv_green_upper = np.array([80, 255, 255])
     hsv_red_lower = np.array([0, 100, 100])
     hsv_red_upper = np.array([10, 255, 255])
 
@@ -40,8 +40,8 @@ def ex_1():
     cv2.namedWindow(windowName)
 
     # load images
-    originalRGBImage = cv2.imread("plansza.png")
-    imageBW = cv2.imread("plansza.png", cv2.IMREAD_GRAYSCALE)
+    originalRGBImage = cv2.imread("brightpng.png")
+    imageBW = cv2.imread("brightpng.png", cv2.IMREAD_GRAYSCALE)
     # add border for checker fields detection
     imageBW = cv2.copyMakeBorder(imageBW, 2,2,2,2, cv2.BORDER_CONSTANT, value=255)
 
@@ -52,10 +52,10 @@ def ex_1():
     boardTileLength = width/8
     # magic
     while cv2.getWindowProperty(windowName, 0) >= 0:
-        # get green checkers mask
-        greenCheckersMask = cv2.inRange(image_HSV, hsv_green_lower, hsv_green_upper)
+        # get green checkers mask and do opening operation to remove noise
+        greenCheckersMask = cv2.morphologyEx(cv2.inRange(image_HSV, hsv_green_lower, hsv_green_upper), cv2.MORPH_OPEN, kernel)
         # get red checkers mask
-        redCheckersMask = cv2.inRange(image_HSV, hsv_red_lower, hsv_red_upper)
+        redCheckersMask = cv2.morphologyEx(cv2.inRange(image_HSV, hsv_red_lower, hsv_red_upper), cv2.MORPH_OPEN, kernel)
 
         # remove unnecessary elements from image, leaving only the board
         ret, imageBW = cv2.threshold(imageBW, 200, 255, cv2.THRESH_BINARY)
@@ -65,7 +65,7 @@ def ex_1():
         im2, redCheckersContours, hierarchy = cv2.findContours(redCheckersMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
         greenCheckersCoords = find_center_coords(greenCheckersContours)
-        redCheckersCoords = find_center_coords(redCheckersContours)
+        #redCheckersCoords = find_center_coords(redCheckersContours)
 
         # tiles detection
         dilation = cv2.dilate(imageBW, kernel, iterations=2)
