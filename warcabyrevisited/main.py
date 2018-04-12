@@ -23,7 +23,7 @@ def draw_centers(point, image):
 
     # draw the contour and center of the shape on the image
     # cv2.drawContours(image, [c], -1, (127, 127, 127), 2)
-    cv2.circle(image, (cX, cY), 7, (255, 255, 255), -1)
+    cv2.circle(image, (cX, cY), 7, (255, 0, 170), -1)
 
 def ex_1():
     # basic properties
@@ -33,8 +33,8 @@ def ex_1():
     # color ranges for checkers detection
     hsv_green_lower = np.array([30, 0, 100])
     hsv_green_upper = np.array([80, 255, 255])
-    hsv_red_lower = np.array([0, 100, 100])
-    hsv_red_upper = np.array([10, 255, 255])
+    hsv_red_lower = np.array([170, 100, 100])
+    hsv_red_upper = np.array([180, 255, 255])
 
     # basic methods
     cv2.namedWindow(windowName)
@@ -57,6 +57,9 @@ def ex_1():
         # get red checkers mask
         redCheckersMask = cv2.morphologyEx(cv2.inRange(image_HSV, hsv_red_lower, hsv_red_upper), cv2.MORPH_OPEN, kernel)
 
+        redCheckersMask=cv2.dilate(redCheckersMask, kernel, iterations=1)
+        greenCheckersMask = cv2.dilate(greenCheckersMask, kernel, iterations=1)
+
         # remove unnecessary elements from image, leaving only the board
         ret, imageBW = cv2.threshold(imageBW, 200, 255, cv2.THRESH_BINARY)
 
@@ -65,7 +68,7 @@ def ex_1():
         im2, redCheckersContours, hierarchy = cv2.findContours(redCheckersMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
         greenCheckersCoords = find_center_coords(greenCheckersContours)
-        #redCheckersCoords = find_center_coords(redCheckersContours)
+        redCheckersCoords = find_center_coords(redCheckersContours)
 
         # tiles detection
         dilation = cv2.dilate(imageBW, kernel, iterations=2)
@@ -82,9 +85,17 @@ def ex_1():
 
         # calc distance between checkers and their fields
         print(greenCheckersCoords)
+        print(redCheckersCoords)
         print(fieldsCoords)
         print(boardTileLength)
         for checkerCoord in greenCheckersCoords:
+            for fieldCoord in fieldsCoords:
+                if(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]) < boardTileLength/2):
+                    print(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]))
+                    draw_centers(checkerCoord, originalRGBImage)
+                    draw_centers(fieldCoord, originalRGBImage)
+
+        for checkerCoord in redCheckersCoords:
             for fieldCoord in fieldsCoords:
                 if(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]) < boardTileLength/2):
                     print(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]))
