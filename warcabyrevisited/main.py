@@ -2,8 +2,10 @@ import cv2
 import numpy as np
 import math
 
+from appJar import gui
 
 def nothing(x): pass
+
 
 
 def find_center_coords(contours):
@@ -111,4 +113,8 @@ def ex_1():
 
 
 if __name__ == "__main__":
-    ex_1()
+    app = gui("Warcaby Revisited", "500x500")
+
+    app.addButton("Capture", ex_1, row=2, column=1)
+
+    app.go()
