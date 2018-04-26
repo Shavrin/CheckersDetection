@@ -74,10 +74,15 @@ def ex_1():
     greenCheckersCoords = find_center_coords(greenCheckersContours)
     redCheckersCoords = find_center_coords(redCheckersContours)
 
+
     # tiles detection
     dilation = cv2.dilate(imageBW, kernel, iterations=2)
+
     im2, boardTilesContours, hierarchy = cv2.findContours(dilation, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
+    convertedDialtion = cv2.cvtColor(dilation, cv2.COLOR_GRAY2BGR)
+    cv2.drawContours(convertedDialtion, redCheckersContours, -1, (0, 0, 255), 6)
+    cv2.drawContours(convertedDialtion, greenCheckersContours, -1, (0, 255, 0), 6)
     # remove biggest contour (image border)
     # Find the index of the largest contour
     areas = [cv2.contourArea(c) for c in boardTilesContours]
@@ -113,31 +118,31 @@ def ex_1():
         #    break
         #if key == ord('s'):
         #break
-    cv2.imwrite('dilation.png', dilation)
+    cv2.imwrite('dilation.png', convertedDialtion)
     cv2.imwrite('originalRGB.png', originalRGBImage)
 
     if BLANK == True:
         app.startLabelFrame("Dilation", 0, 0)
         app.addImage("dilation", "dilation.png")
-        app.shrinkImage("dilation", 3)
+        app.shrinkImage("dilation", 2)
         app.stopLabelFrame()
 
         app.startLabelFrame("Detected", 1, 0)
         app.addImage("detected", "originalRGB.png")
-        app.shrinkImage("detected", 3)
+        app.shrinkImage("detected", 2)
         app.stopLabelFrame()
         BLANK = False
     else:
         app.reloadImage("dilation", "dilation.png")
-        app.shrinkImage("dilation", 3)
+        app.shrinkImage("dilation", 2)
         app.reloadImage("detected", "originalRGB.png")
-        app.shrinkImage("detected", 3)
+        app.shrinkImage("detected", 2)
 
     cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":
-    app = gui("Warcaby Revisited", "500x500")
+    app = gui("Warcaby Revisited", "500x700")
 
     app.addButton("Capture", ex_1, row=0, column=1)
     app.addButton("Check Move", nothing, row=1, column=1)
