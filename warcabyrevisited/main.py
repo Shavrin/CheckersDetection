@@ -139,5 +139,6 @@ def ex_1():
 if __name__ == "__main__":
     app = gui("Warcaby Revisited", "500x500")
 
-    app.addButton("Capture", ex_1, row=1, column=1)
+    app.addButton("Capture", ex_1, row=0, column=1)
+    app.addButton("Check Move", nothing, row=1, column=1)
     app.go()
