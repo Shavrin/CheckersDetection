@@ -17,13 +17,13 @@ def find_center_coords(contours):
     return d
 
 
-def draw_centers(point, image):
+def draw_centers(point, image, color):
     cX = point[0]
     cY = point[1]
 
     # draw the contour and center of the shape on the image
     # cv2.drawContours(image, [c], -1, (127, 127, 127), 2)
-    cv2.circle(image, (cX, cY), 7, (255, 0, 170), -1)
+    cv2.circle(image, (cX, cY), 7, color, -1)
 
 def ex_1():
     # basic properties
@@ -40,8 +40,40 @@ def ex_1():
     cv2.namedWindow(windowName)
 
     # load images
-    originalRGBImage = cv2.imread("brightpng.png")
-    imageBW = cv2.imread("brightpng.png", cv2.IMREAD_GRAYSCALE)
+    originalRGBImage = cv2.imread("p1.jpg")
+    corners = np.array([
+        [40, 38],
+        [1721, 30],
+        [38, 1829],
+        [1957, 1703]], dtype="float32")
+    dst = np.array([
+        [0,0],
+        [1900,0],
+        [0,1900],
+        [1900,1900]], dtype="float32")
+    M = cv2.getPerspectiveTransform(corners, dst)
+    originalRGBImage = cv2.warpPerspective(originalRGBImage, M, (1900, 1900))
+    originalRGBImage = cv2.resize(originalRGBImage,(1000,1000), interpolation = cv2.INTER_CUBIC)
+    cv2.imshow(windowName, originalRGBImage)
+
+    imageBW = cv2.imread("p1.jpg", cv2.IMREAD_GRAYSCALE)
+    corners = np.array([
+        [40, 38],
+        [1721, 30],
+        [38, 1829],
+        [1957, 1703]], dtype="float32")
+    dst = np.array([
+        [0, 0],
+        [1900, 0],
+        [0, 1900],
+        [1900, 1900]], dtype="float32")
+    M = cv2.getPerspectiveTransform(corners, dst)
+
+    imageBW = cv2.warpPerspective(imageBW, M, (1900, 1900))
+    imageBW = cv2.resize(imageBW,(1000,1000), interpolation = cv2.INTER_CUBIC)
+
+    cv2.imshow(windowName, imageBW)
+
     # add border for checker fields detection
     imageBW = cv2.copyMakeBorder(imageBW, 2,2,2,2, cv2.BORDER_CONSTANT, value=255)
 
@@ -92,15 +124,15 @@ def ex_1():
             for fieldCoord in fieldsCoords:
                 if(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]) < boardTileLength/2):
                     print(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]))
-                    draw_centers(checkerCoord, originalRGBImage)
-                    draw_centers(fieldCoord, originalRGBImage)
+                    draw_centers(checkerCoord, originalRGBImage, (255, 0, 170))
+                    draw_centers(fieldCoord, originalRGBImage, (255, 0, 0))
 
         for checkerCoord in redCheckersCoords:
             for fieldCoord in fieldsCoords:
                 if(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]) < boardTileLength/2):
                     print(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]))
-                    draw_centers(checkerCoord, originalRGBImage)
-                    draw_centers(fieldCoord, originalRGBImage)
+                    draw_centers(checkerCoord, originalRGBImage, (255, 0, 170))
+                    draw_centers(fieldCoord, originalRGBImage, (0, 0, 170))
 
         cv2.imshow(windowName, originalRGBImage)
         cv2.imshow("Erozja", dilation)
