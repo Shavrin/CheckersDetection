@@ -3,6 +3,7 @@ import numpy as np
 import math
 
 from appJar import gui
+from PIL import Image, ImageTk
 
 def nothing(x): pass
 
@@ -212,8 +213,8 @@ def ex_1():
 
     # tiles detection
     dilation = cv2.dilate(imageBW, kernel, iterations=2)
-    cv2.imwrite('dilation.jpg', dilation)
-    cv2.imwrite('originalRGB.jpg', originalRGBImage)
+    resizedOriginalRGBImage = cv2.resize(originalRGBImage, (400, 400))
+    cv2.imwrite('originalRGB.jpg', resizedOriginalRGBImage)
     im2, boardTilesContours, hierarchy = cv2.findContours(dilation, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     # remove biggest contour (image border)
@@ -274,17 +275,18 @@ def ex_1():
                 draw_circle(fieldCoord, originalRGBImage, 7, (0, 0, 170))
 
     renderedGame = renderGameState(stateOfTheGameList)
-    cv2.imwrite('renderedGame.jpg', renderedGame)
+    resizedRenderedGame = cv2.resize(renderedGame, (400, 400))
+    cv2.imwrite('renderedGame.jpg', resizedRenderedGame)
 
     if BLANK == True:
         app.startLabelFrame("state", 0, 0)
-        app.addImage("state", "originalRGB.jpg")
-        app.shrinkImage("state", 3)
+        photo1 = ImageTk.PhotoImage(Image.open("originalRGB.jpg"))
+        app.addImageData("state", photo1, fmt="PhotoImage" )
         app.stopLabelFrame()
 
         app.startLabelFrame("renderedGame", 1, 0)
-        app.addImage("renderedGame", "renderedGame.jpg")
-        app.shrinkImage("renderedGame", 3)
+        photo2 = ImageTk.PhotoImage(Image.open("renderedGame.jpg"))
+        app.addImageData("renderedGame", photo2, fmt="PhotoImage")
         app.stopLabelFrame()
         BLANK = False
     else:
@@ -297,7 +299,7 @@ def ex_1():
 
 
 if __name__ == "__main__":
-    app = gui("Warcaby Revisited", "500x700")
+    app = gui("Warcaby Revisited", "550x850")
 
     app.addButton("Capture", ex_1, row=0, column=1)
     app.addButton("Check Move", nothing, row=1, column=1)
