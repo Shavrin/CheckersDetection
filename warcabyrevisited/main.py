@@ -31,8 +31,8 @@ def renderGameState(gameStateList):
     height, width, channels = game.shape
     # checker board is 8x8
     boardTileLength = width//8
-    for idxX, stateRow in enumerate(gameStateList):
-       for idxY, stateField in enumerate(stateRow):
+    for idxY, stateRow in enumerate(gameStateList):
+       for idxX, stateField in enumerate(stateRow):
             if (stateField == 0):
                continue
             if (stateField == 1):
@@ -90,7 +90,7 @@ def ex_1():
     originalRGBImage = cv2.warpPerspective(originalRGBImage, M, (1900, 1900))
     originalRGBImage = cv2.resize(originalRGBImage,(1000,1000), interpolation = cv2.INTER_CUBIC)
 
-    iteracja = 2
+    iteracja = 0
     # load images
     if (iteracja == 0):
         originalRGBImage = cv2.imread("p1.jpg")
@@ -226,10 +226,6 @@ def ex_1():
     fieldsCoords = find_center_coords(boardTilesContours)
 
     # calc distance between checkers and their fields
-
-
-
-
     print(greenCheckersCoords)
     print(redCheckersCoords)
     print(fieldsCoords)
@@ -249,7 +245,7 @@ def ex_1():
                 while (Y_Coord_TMP > 0):
                     Y_Coord_TMP -= boardTileLength
                     Y_Index_TMP += 1
-                stateOfTheGameList[X_Index_TMP][Y_Index_TMP] = GREEN_CHECKER_VALUE
+                stateOfTheGameList[Y_Index_TMP][X_Index_TMP] = GREEN_CHECKER_VALUE
 
                 draw_circle(checkerCoord, originalRGBImage, 7, (255, 0, 170))
                 draw_circle(fieldCoord, originalRGBImage, 7, (255, 0, 0))
@@ -269,7 +265,8 @@ def ex_1():
                 while (Y_Coord_TMP > 0):
                     Y_Coord_TMP -= boardTileLength
                     Y_Index_TMP += 1
-                stateOfTheGameList[X_Index_TMP][Y_Index_TMP] = RED_CHECKER_VALUE
+                stateOfTheGameList[Y_Index_TMP][X_Index_TMP] = RED_CHECKER_VALUE
+
                 draw_circle(checkerCoord, originalRGBImage, 7, (255, 0, 170))
                 draw_circle(fieldCoord, originalRGBImage, 7, (0, 0, 170))
 
