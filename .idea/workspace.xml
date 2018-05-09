@@ -1,709 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2d06ede-9a81-4220-babb-6fa077b8f855" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/WarcabyRevisited-SuperProjekt.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/appjar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/examples/showcase.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/TkDND_wrapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/license.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/nanojpeg.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/png.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/pkgIndex.tcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/tcl_files/tkdnd_compat.tcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/tcl_files/tkdnd_generic.tcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/tcl_files/tkdnd_macosx.tcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/tcl_files/tkdnd_unix.tcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/tcl_files/tkdnd_windows.tcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/tcl_libs/libtkdnd2.8.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/tcl_libs/libtkdnd2.8.dylib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/tcl_libs/libtkdnd2.8.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/tcl_libs/libtkdnd2.8_arm.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/tcl_libs/libtkdnd2.8_lin32.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/tcl_libs/libtkdnd2.8_lin64.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/tcl_libs/libtkdnd2.8_win64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkdnd2.8/tkdnd.tcl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tkinter_png.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/lib/tooltip.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/3d-cube.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/3d-cylinder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/3d-glasses.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/3d-plane.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/3d-pyramid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/3d-sphere.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/3d-wedge.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/3d-x-axis-rotation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/3d-y-axis-rotation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/3d-z-axis-rotation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/4-direction-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/4-direction.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/8-direction-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/8-direction.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/License.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/ReadMe.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/about.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/access.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/activity.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/address-book.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/airport.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/alarm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/alert-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/alert.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/anchor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/announce.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/antivirus-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/antivirus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-1-backward.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-1-down-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-1-down-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-1-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-1-forward.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-1-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-1-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-1-up-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-1-up-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-1-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-2-down-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-2-down-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-2-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-2-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-2-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-2-up-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-2-up-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-2-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-3-down-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-3-down-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-3-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-3-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-3-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-3-up-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-3-up-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-3-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-4-down-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-4-down-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-4-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-4-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-4-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-4-up-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-4-up-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-4-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-5-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-5-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-5-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-5-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-6-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-6-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-6-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-6-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-7-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-7-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-7-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-7-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-8-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-8-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-8-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-8-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-circular-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-circular-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-orthogonal-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/arrow-orthogonal-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/asterisk-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/asterisk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/attachment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/axis-x-y-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/axis-x-y.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/badge.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bag-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bag-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bag-alt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bag-alt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bag-alt-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/baggage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/balance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bank-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bank-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bank.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/barcode.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/basket-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/basket-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/basket-alt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/basket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/battery-empty-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/battery-empty.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/battery-full-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/battery-full.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bicycle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/blog.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bluetooth.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/book-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/book-alt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/book-alt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/book-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/book.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bookmark-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bookmark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/books.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/box-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/box.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/briefcase.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/brush-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/brush-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/brush.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bug.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/bussiness-card.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cake-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cake.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/calculator-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/calculator.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/calendar-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/calendar-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/calendar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cancel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cart-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cart-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cart-alt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cart-alt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cart-alt-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cart-alt-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/chair-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/chair.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/chat-active-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/chat-active-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/chat-active.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/chat-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/chat-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/chat-alt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/chat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/check-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/check.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/checkbox-empty.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/checkbox.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cheque.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cinema.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/city.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/code.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/color-picker.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/color-swatch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/comment-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/comment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/compass-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/compass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/compress.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/computer-laptop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/computer-retro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/computer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/connect-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/connect-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/connect.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/connection-error-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/connection-error-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/connection-error.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/construction.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/content.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/controls-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/controls-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/controls.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/copy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/couch-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/couch-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/couch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/counter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/credit-card.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/crop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cross.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cup-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cup.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/cut.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/data-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/data-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/data.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-add-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-add-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-download-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-download-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-reload-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-reload-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-reload.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-remove-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-remove-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-remove.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-upload-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-upload-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-upload.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-user-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database-user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/database.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/directions-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/directions.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/display-mac-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/display-mac.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/display.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/document-empty.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/document-new.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/document.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/documents.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/door-closed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/door.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/download-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/download-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/download-alt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/download-alt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/drawer-locked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/drawer-unlocked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/drawer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/drawers-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/drawers-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/drawers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/drill.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/drive-disk-cd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/drive-network.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/edit-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/edit-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/edit-document.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/eightball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/elevator.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/enter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/eraser.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/ethernet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/exit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/export.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/facebook-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/facebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/factory.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/fan-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/fan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/favourite-add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/favourite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/file-add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/file-download-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/file-download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/file-edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/file-remove.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/file-upload-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/file-upload.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/files.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/fill.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/filter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/find.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/fire.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/firewall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/firewire.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/first-aid-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/first-aid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/flag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/folder-open.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/folder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/font.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/food.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/ftp-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/ftp-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/ftp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/full-screen-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/full-screen-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/full-screen-alt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/full-screen-alt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/full-screen-alt-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/full-screen-exit-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/full-screen-exit-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/full-screen-exit-alt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/full-screen-exit-alt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/full-screen-exit-alt-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/full-screen-exit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/full-screen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/gameboy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/games-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/games-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/games-alt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/games-alt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/games-alt-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/games-alt-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/games.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/gift.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/glasses-swim.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/glasses.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/grid-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/grid-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/grid-alt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/grid-dot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/grid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/hammer-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/hammer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/hardware-chip.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/hardware-processor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/hedge.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/help-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/help.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/hierarchy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/high-definition.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/i-phone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/i-pod.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/icecream.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/idea-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/idea.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/info.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-A.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-Alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-apple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-backspace-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-backspace.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-caps.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-command.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-control.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-enter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-option.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-page-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-page-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-shift.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-tab.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key-windows.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/key.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/keyboard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/keyhole.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/kokoretsi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/kraftwerk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/label.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/lamp-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/lamp-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/lamp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/layers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/layout-content.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/layout-header.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/layout-sidebar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/layout.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/license-key.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/link-broken.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/link.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/list-numbered.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/list-ordered.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/list-unordered.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/location.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/login.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/logout.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/luck.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/magnet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/mail-inbox.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/mail-read.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/mail-sent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/mail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/man.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/map-marker-pin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/map.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-analog.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-aspect-ratio-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-aspect-ratio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-audio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-backward.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-betamax.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-brightness.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-camera-photo-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-camera-photo-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-camera-photo-alt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-camera-photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-camera-polaroid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-camera-surveillance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-camera-video-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-camera-video-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-camera-video.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-camera-web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-cassette-tape.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-cd-burn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-cd-card.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-cd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-contrast.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-dat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-disc-3''.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-disc-3-5''.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-disc-5-1-4''.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-eject.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-equalizer-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-equalizer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-fast-backward-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-fast-backward.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-fast-forward-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-fast-forward.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-film.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-flash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-headphones-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-headphones-mic.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-headphones.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-inverse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-knob-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-knob-decrease.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-knob-increase.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-knob-volume.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-knob.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-levels-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-levels-decrease.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-levels-increase.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-levels.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-microphone-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-microphone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-minidisc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-music.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-next.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-photo-alt 2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-photo-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-photos-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-photos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-picture-broken-link-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-picture-broken-link.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-previous.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-radio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-record.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-reload.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-repeat-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-repeat-once.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-repeat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-resume.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-shuffle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-sound.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-speaker-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-speaker.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-split.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-stop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-stream-audio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-stream-video.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-synth.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-time-pos-back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-time-pos-forward.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-time-pos-set.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-time-position.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-tv.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-vhs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-video.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-vinyl-33-1-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-vinyl-45.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-volume-0-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-volume-0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-volume-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-volume-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-volume-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-volume-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/md-volume-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/medal-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/medal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/mobile-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/mobile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/module.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/moleskine.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/moon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/mouse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/navigation-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/navigation-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/navigation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/network-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/network.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/new.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/no.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/node.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/notepad-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/notepad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/open-in-new-window.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/open-source.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/open.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/orientation-landscape.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/orientation-portrait.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/padlock-closed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/padlock-open.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/paintroller-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/paintroller.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/park-bench.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/paste.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/pattern.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/pen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/pie-chart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/pill.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/pin.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/pinetree.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/plugin-disabled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/plugin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/podcast.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/pollution.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/power-off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/power-on-off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/power-on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/power-standby.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/preferences.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/presentation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/print-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/print.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/printer-preview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/printer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/projector.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/read-only.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/redo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/refresh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/refreshment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/register.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/remote-control.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/report.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/resize.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/rip.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/road-sign.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/rss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/ruby.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/ruler-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/ruler.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/safety-box.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/save.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/science.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/screenshot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/script.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/search-advanced.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/server.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/servers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/settings.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shape-circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shape-ellipse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shape-hexagon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shape-kite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shape-parallelogram-orthogonal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shape-pentagon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shape-rhombus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shape-square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shape-trapezoid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shape-triangle-equilateral.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shape-triangle-isosceles.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shape-triangle-rectangular.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shape-triangle-scalene.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-align-hori-center.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-align-hori-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-align-hori-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-align-verti-bottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-align-verti-middle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-align-verti-top.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-flip-horizontal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-flip-vertical.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-move-back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-move-backward.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-move-forward.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-move-front.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-rotate-anticlockwise.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/shapes-rotate-clockwise.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/sitemap.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/spaceship.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/stamp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/star.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/statistics-chart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/sticky-note.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/stop-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/stop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/stopwatch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/switch-off-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/switch-off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/switch-on-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/switch-on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/tab.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/table.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/tag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/tags.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/target.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/telephone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/tent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/terminal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/thumbnails.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/tie.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/time-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/time.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/toolbox.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/trafficlight-green.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/trafficlight-orange.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/trafficlight-red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/trafficlight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/trash-empty.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/trash-full.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/trophy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/truck.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/twitter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/typewritter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/undo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/unfold-from-bottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/unfold-from-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/unfold-from-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/unfold-from-top.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/unfold-multiple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/unpin.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-alt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-alt-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-art.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-chat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-female-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-female-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-female.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-locked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-male-alt-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-male-alt-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-male-alt-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-male.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-offline.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-refresh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user-sleep.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/users-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/users.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/view.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/wall-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/wall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/wallet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/water-alt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/water.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/weather-cloud-sun.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/weather-cloud.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/weather-clouds.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/weather-rain.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/weather-snow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/weather-sun.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/weather-thunder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/weight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/wi-fi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/window-stack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/window-tile-horizontally.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/window-tile-vertically.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/window-tile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/window.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/wireless-router.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/wizard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/zoom-in.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/zoom-out.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/warcabyrevisited/appJar/resources/icons/zoom.png" afterDir="false" />
+    <list default="true" id="ab358196-4e43-4b7a-95ce-9c15c832a7fe" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/warcabyrevisited/bright.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/warcabyrevisited/brightpng.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/warcabyrevisited/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/warcabyrevisited/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/warcabyrevisited/realpng.png" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -715,8 +15,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+            <state relative-caret-position="-1288">
+              <caret line="29" column="46" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -736,18 +36,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/warcabyrevisited/main.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1121" />
-    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -774,10 +62,6 @@
       <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="terminal&#9;ACTION&#9;ActivateTerminalToolWindow" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -892,33 +176,38 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1121" height="1047" extended-state="0" />
+    <frame x="-7" y="5" width="1310" height="1042" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14660634" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1251932" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34861407" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3483387" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.27032736" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.30868167" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39978677" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34861407" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978677" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.27032736" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
     </layout>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -955,8 +244,341 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+        <state relative-caret-position="434">
+          <caret line="149" column="9" lean-forward="true" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="68" column="39" lean-forward="true" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/appJar/appjar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="7015" selection-start-line="7015" selection-end-line="7015" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="302" lean-forward="true" selection-end-line="306" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="68" column="39" lean-forward="true" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/appJar/appjar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="7015" selection-start-line="7015" selection-end-line="7015" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="295" column="26" lean-forward="true" selection-start-line="295" selection-start-column="26" selection-end-line="295" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="68" column="39" lean-forward="true" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/appJar/appjar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="7015" selection-start-line="7015" selection-end-line="7015" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="266" column="36" lean-forward="true" selection-start-line="266" selection-start-column="36" selection-end-line="266" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="68" column="39" lean-forward="true" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/appJar/appjar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="7015" selection-start-line="7015" selection-end-line="7015" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="149" column="9" lean-forward="true" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="68" column="39" lean-forward="true" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/appJar/appjar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="7015" selection-start-line="7015" selection-end-line="7015" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="302" lean-forward="true" selection-end-line="306" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="68" column="39" lean-forward="true" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/appJar/appjar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="7015" selection-start-line="7015" selection-end-line="7015" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="304" lean-forward="true" selection-start-line="304" selection-end-line="304" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="68" column="39" lean-forward="true" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/appJar/appjar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="7015" selection-start-line="7015" selection-end-line="7015" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="149" column="9" lean-forward="true" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="68" column="39" lean-forward="true" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/appJar/appjar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="7015" selection-start-line="7015" selection-end-line="7015" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="302" lean-forward="true" selection-end-line="306" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="68" column="39" lean-forward="true" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/appJar/appjar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="7015" selection-start-line="7015" selection-end-line="7015" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warcabyrevisited/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1288">
+          <caret line="29" column="46" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
