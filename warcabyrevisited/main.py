@@ -306,10 +306,10 @@ def ex_1():
         app.stopLabelFrame()
         BLANK = False
     else:
-        app.reloadImage("state", "originalRGB.jpg")
-        app.shrinkImage("state", 3)
-        app.reloadImage("renderedGame", "renderedGame.jpg")
-        app.shrinkImage("renderedGame", 3)
+        photo1 = ImageTk.PhotoImage(Image.open("originalRGB.jpg"))
+        app.reloadImageData("state", photo1, fmt="PhotoImage")
+        photo2 = ImageTk.PhotoImage(Image.open("renderedGame.jpg"))
+        app.reloadImageData("renderedGame", photo2, fmt="PhotoImage")
 
     IsEvenCapture = not IsEvenCapture
     cv2.destroyAllWindows()
