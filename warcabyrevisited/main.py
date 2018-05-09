@@ -40,9 +40,6 @@ def ex_1():
     hsv_red_lower = np.array([170, 100, 100])
     hsv_red_upper = np.array([180, 255, 255])
 
-    # basic methods
-    cv2.namedWindow(windowName)
-
     # load images
     originalRGBImage = cv2.imread("p1.jpg")
     corners = np.array([
@@ -58,7 +55,6 @@ def ex_1():
     M = cv2.getPerspectiveTransform(corners, dst)
     originalRGBImage = cv2.warpPerspective(originalRGBImage, M, (1900, 1900))
     originalRGBImage = cv2.resize(originalRGBImage,(1000,1000), interpolation = cv2.INTER_CUBIC)
-    cv2.imshow(windowName, originalRGBImage)
 
     imageBW = cv2.imread("p1.jpg", cv2.IMREAD_GRAYSCALE)
     corners = np.array([
@@ -76,8 +72,6 @@ def ex_1():
     imageBW = cv2.warpPerspective(imageBW, M, (1900, 1900))
     imageBW = cv2.resize(imageBW,(1000,1000), interpolation = cv2.INTER_CUBIC)
 
-    cv2.imshow(windowName, imageBW)
-
     # add border for checker fields detection
     imageBW = cv2.copyMakeBorder(imageBW, 2,2,2,2, cv2.BORDER_CONSTANT, value=255)
 
@@ -86,33 +80,29 @@ def ex_1():
     height, width, channels = originalRGBImage.shape
     # checker board is 8x8
     boardTileLength = width/8
-    # magic
-    while cv2.getWindowProperty(windowName, 0) >= 0:
-        # get green checkers mask and do opening operation to remove noise
-        greenCheckersMask = cv2.morphologyEx(cv2.inRange(image_HSV, hsv_green_lower, hsv_green_upper), cv2.MORPH_OPEN, kernel)
-        # get red checkers mask
-        redCheckersMask = cv2.morphologyEx(cv2.inRange(image_HSV, hsv_red_lower, hsv_red_upper), cv2.MORPH_OPEN, kernel)
 
-        redCheckersMask=cv2.dilate(redCheckersMask, kernel, iterations=1)
-        greenCheckersMask = cv2.dilate(greenCheckersMask, kernel, iterations=1)
+    # get green checkers mask and do opening operation to remove noise
+    greenCheckersMask = cv2.morphologyEx(cv2.inRange(image_HSV, hsv_green_lower, hsv_green_upper), cv2.MORPH_OPEN, kernel)
+    # get red checkers mask
+    redCheckersMask = cv2.morphologyEx(cv2.inRange(image_HSV, hsv_red_lower, hsv_red_upper), cv2.MORPH_OPEN, kernel)
 
-        # remove unnecessary elements from image, leaving only the board
-        ret, imageBW = cv2.threshold(imageBW, 200, 255, cv2.THRESH_BINARY)
+    redCheckersMask=cv2.dilate(redCheckersMask, kernel, iterations=1)
+    greenCheckersMask = cv2.dilate(greenCheckersMask, kernel, iterations=1)
 
-        # checkers detection
-        im2, greenCheckersContours, hierarchy = cv2.findContours(greenCheckersMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        im2, redCheckersContours, hierarchy = cv2.findContours(redCheckersMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    # remove unnecessary elements from image, leaving only the board
+    ret, imageBW = cv2.threshold(imageBW, 200, 255, cv2.THRESH_BINARY)
 
-        greenCheckersCoords = find_center_coords(greenCheckersContours)
-        redCheckersCoords = find_center_coords(redCheckersContours)
+    # checkers detection
+    im2, greenCheckersContours, hierarchy = cv2.findContours(greenCheckersMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    im2, redCheckersContours, hierarchy = cv2.findContours(redCheckersMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-        # tiles detection
-        dilation = cv2.dilate(imageBW, kernel, iterations=2)
-        im2, boardTilesContours, hierarchy = cv2.findContours(dilation, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    greenCheckersCoords = find_center_coords(greenCheckersContours)
+    redCheckersCoords = find_center_coords(redCheckersContours)
 
-    convertedDialtion = cv2.cvtColor(dilation, cv2.COLOR_GRAY2BGR)
-    cv2.drawContours(convertedDialtion, redCheckersContours, -1, (0, 0, 255), 6)
-    cv2.drawContours(convertedDialtion, greenCheckersContours, -1, (0, 255, 0), 6)
+    # tiles detection
+    dilation = cv2.dilate(imageBW, kernel, iterations=2)
+    im2, boardTilesContours, hierarchy = cv2.findContours(dilation, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
     # remove biggest contour (image border)
     # Find the index of the largest contour
     areas = [cv2.contourArea(c) for c in boardTilesContours]
@@ -122,51 +112,46 @@ def ex_1():
 
     fieldsCoords = find_center_coords(boardTilesContours)
 
-        # calc distance between checkers and their fields
-        print(greenCheckersCoords)
-        print(redCheckersCoords)
-        print(fieldsCoords)
-        print(boardTileLength)
-        for checkerCoord in greenCheckersCoords:
-            for fieldCoord in fieldsCoords:
-                if(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]) < boardTileLength/2):
-                    print(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]))
-                    draw_centers(checkerCoord, originalRGBImage, (255, 0, 170))
-                    draw_centers(fieldCoord, originalRGBImage, (255, 0, 0))
+    # calc distance between checkers and their fields
 
-        for checkerCoord in redCheckersCoords:
-            for fieldCoord in fieldsCoords:
-                if(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]) < boardTileLength/2):
-                    print(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]))
-                    draw_centers(checkerCoord, originalRGBImage, (255, 0, 170))
-                    draw_centers(fieldCoord, originalRGBImage, (0, 0, 170))
+    cv2.imwrite('originalRGB.jpg', originalRGBImage)
 
-        #cv2.imshow(windowName, originalRGBImage)
-        #cv2.imshow("Erozja", dilation)
-        #key = cv2.waitKey(10)
-        #if key == ord('q'):
-        #    break
-        #if key == ord('s'):
-        #break
-    cv2.imwrite('dilation.png', convertedDialtion)
-    cv2.imwrite('originalRGB.png', originalRGBImage)
+    print(greenCheckersCoords)
+    print(redCheckersCoords)
+    print(fieldsCoords)
+    print(boardTileLength)
+    for checkerCoord in greenCheckersCoords:
+        for fieldCoord in fieldsCoords:
+            if(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]) < boardTileLength/2):
+                print(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]))
+                draw_centers(checkerCoord, originalRGBImage, (255, 0, 170))
+                draw_centers(fieldCoord, originalRGBImage, (255, 0, 0))
+
+    for checkerCoord in redCheckersCoords:
+        for fieldCoord in fieldsCoords:
+            if(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]) < boardTileLength/2):
+                print(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]))
+                draw_centers(checkerCoord, originalRGBImage, (255, 0, 170))
+                draw_centers(fieldCoord, originalRGBImage, (0, 0, 170))
+
+    cv2.imwrite('originalRGBdetected.jpg', originalRGBImage)
 
     if BLANK == True:
-        app.startLabelFrame("Dilation", 0, 0)
-        app.addImage("dilation", "dilation.png")
-        app.shrinkImage("dilation", 2)
+        app.startLabelFrame("state", 0, 0)
+        app.addImage("state", "originalRGB.jpg")
+        app.shrinkImage("state", 3)
         app.stopLabelFrame()
 
         app.startLabelFrame("Detected", 1, 0)
-        app.addImage("detected", "originalRGB.png")
-        app.shrinkImage("detected", 2)
+        app.addImage("detected", "originalRGBdetected.jpg")
+        app.shrinkImage("detected", 3)
         app.stopLabelFrame()
         BLANK = False
     else:
-        app.reloadImage("dilation", "dilation.png")
-        app.shrinkImage("dilation", 2)
-        app.reloadImage("detected", "originalRGB.png")
-        app.shrinkImage("detected", 2)
+        app.reloadImage("state", "originalRGB.jpg")
+        app.shrinkImage("state", 3)
+        app.reloadImage("detected", "originalRGBdetected.jpg")
+        app.shrinkImage("detected", 3)
 
     cv2.destroyAllWindows()
 
