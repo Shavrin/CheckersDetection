@@ -2,8 +2,11 @@ import cv2
 import numpy as np
 import math
 
+from appJar import gui
 
 def nothing(x): pass
+
+BLANK = True
 
 
 def find_center_coords(contours):
@@ -26,6 +29,7 @@ def draw_centers(point, image, color):
     cv2.circle(image, (cX, cY), 7, color, -1)
 
 def ex_1():
+    global BLANK
     # basic properties
     windowName = "Warcaby"
     kernel = np.ones((5, 5), np.uint8)
@@ -106,14 +110,17 @@ def ex_1():
         dilation = cv2.dilate(imageBW, kernel, iterations=2)
         im2, boardTilesContours, hierarchy = cv2.findContours(dilation, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-        # remove biggest contour (image border)
-        # Find the index of the largest contour
-        areas = [cv2.contourArea(c) for c in boardTilesContours]
-        max_index = np.argmax(areas)
-        # remove largest contour (image border)
-        boardTilesContours.pop(max_index)
+    convertedDialtion = cv2.cvtColor(dilation, cv2.COLOR_GRAY2BGR)
+    cv2.drawContours(convertedDialtion, redCheckersContours, -1, (0, 0, 255), 6)
+    cv2.drawContours(convertedDialtion, greenCheckersContours, -1, (0, 255, 0), 6)
+    # remove biggest contour (image border)
+    # Find the index of the largest contour
+    areas = [cv2.contourArea(c) for c in boardTilesContours]
+    max_index = np.argmax(areas)
+    # remove largest contour (image border)
+    boardTilesContours.pop(max_index)
 
-        fieldsCoords = find_center_coords(boardTilesContours)
+    fieldsCoords = find_center_coords(boardTilesContours)
 
         # calc distance between checkers and their fields
         print(greenCheckersCoords)
@@ -134,13 +141,39 @@ def ex_1():
                     draw_centers(checkerCoord, originalRGBImage, (255, 0, 170))
                     draw_centers(fieldCoord, originalRGBImage, (0, 0, 170))
 
-        cv2.imshow(windowName, originalRGBImage)
-        cv2.imshow("Erozja", dilation)
-        key = cv2.waitKey(10)
-        if key == ord('q'):
-            break
+        #cv2.imshow(windowName, originalRGBImage)
+        #cv2.imshow("Erozja", dilation)
+        #key = cv2.waitKey(10)
+        #if key == ord('q'):
+        #    break
+        #if key == ord('s'):
+        #break
+    cv2.imwrite('dilation.png', convertedDialtion)
+    cv2.imwrite('originalRGB.png', originalRGBImage)
+
+    if BLANK == True:
+        app.startLabelFrame("Dilation", 0, 0)
+        app.addImage("dilation", "dilation.png")
+        app.shrinkImage("dilation", 2)
+        app.stopLabelFrame()
+
+        app.startLabelFrame("Detected", 1, 0)
+        app.addImage("detected", "originalRGB.png")
+        app.shrinkImage("detected", 2)
+        app.stopLabelFrame()
+        BLANK = False
+    else:
+        app.reloadImage("dilation", "dilation.png")
+        app.shrinkImage("dilation", 2)
+        app.reloadImage("detected", "originalRGB.png")
+        app.shrinkImage("detected", 2)
+
     cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":
-    ex_1()
+    app = gui("Warcaby Revisited", "500x700")
+
+    app.addButton("Capture", ex_1, row=0, column=1)
+    app.addButton("Check Move", nothing, row=1, column=1)
+    app.go()
