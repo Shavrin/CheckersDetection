@@ -101,9 +101,9 @@ def ex_1():
     originalRGBImage = cv2.resize(originalRGBImage,(1000,1000), interpolation = cv2.INTER_CUBIC)
 
     if (IsEvenCapture==False):
-        iteracja = 0
+        iteracja = 4
     else:
-        iteracja = 1
+        iteracja = 5
     # load images
     if (iteracja == 0):
         originalRGBImage = cv2.imread("p1.jpg")
@@ -170,10 +170,10 @@ def ex_1():
     elif(iteracja==2):
         originalRGBImage = cv2.imread("p3.jpg")
         corners = np.array([
-            [333, 10],
-            [2410, 41],
-            [22, 2142],
-            [2676, 2148]], dtype="float32")
+            [300, 23],
+            [2360, 125],
+            [8, 2190],
+            [2575, 2200]], dtype="float32")
         dst = np.array([
             [0, 0],
             [1900, 0],
@@ -198,6 +198,99 @@ def ex_1():
 
         imageBW = cv2.warpPerspective(imageBW, M, (1900, 1900))
         imageBW = cv2.resize(imageBW, (1000, 1000), interpolation=cv2.INTER_CUBIC)
+    elif(iteracja == 3):
+        originalRGBImage = cv2.imread("p4.jpg")
+        corners = np.array([
+            [382, 100],
+            [2420, 90],
+            [19,2169],
+            [2682,2178]], dtype="float32")
+        dst = np.array([
+            [0, 0],
+            [1900, 0],
+            [0, 1900],
+            [1900, 1900]], dtype="float32")
+        M = cv2.getPerspectiveTransform(corners, dst)
+        originalRGBImage = cv2.warpPerspective(originalRGBImage, M, (1900, 1900))
+        originalRGBImage = cv2.resize(originalRGBImage, (1000, 1000), interpolation=cv2.INTER_CUBIC)
+
+        imageBW = cv2.imread("p4.jpg", cv2.IMREAD_GRAYSCALE)
+        corners = np.array([
+            [382, 100],
+            [2420, 90],
+            [19,2169],
+            [2682,2178]], dtype="float32")
+        dst = np.array([
+            [0, 0],
+            [1900, 0],
+            [0, 1900],
+            [1900, 1900]], dtype="float32")
+        M = cv2.getPerspectiveTransform(corners, dst)
+
+        imageBW = cv2.warpPerspective(imageBW, M, (1900, 1900))
+        imageBW = cv2.resize(imageBW, (1000, 1000), interpolation=cv2.INTER_CUBIC)
+    elif (iteracja == 4):
+        originalRGBImage = cv2.imread("p5.jpg")
+        corners = np.array([
+            [355,49],
+            [2492,51],
+            [9, 2273],
+            [2711,2161]], dtype="float32")
+        dst = np.array([
+            [0, 0],
+            [1900, 0],
+            [0, 1900],
+            [1900, 1900]], dtype="float32")
+        M = cv2.getPerspectiveTransform(corners, dst)
+        originalRGBImage = cv2.warpPerspective(originalRGBImage, M, (1900, 1900))
+        originalRGBImage = cv2.resize(originalRGBImage, (1000, 1000), interpolation=cv2.INTER_CUBIC)
+
+        imageBW = cv2.imread("p5.jpg", cv2.IMREAD_GRAYSCALE)
+        corners = np.array([
+            [355,49],
+            [2492,51],
+            [9, 2273],
+            [2711,2161]], dtype="float32")
+        dst = np.array([
+            [0, 0],
+            [1900, 0],
+            [0, 1900],
+            [1900, 1900]], dtype="float32")
+        M = cv2.getPerspectiveTransform(corners, dst)
+
+        imageBW = cv2.warpPerspective(imageBW, M, (1900, 1900))
+        imageBW = cv2.resize(imageBW, (1000, 1000), interpolation=cv2.INTER_CUBIC)
+    elif (iteracja == 5):
+        originalRGBImage = cv2.imread("p6.jpg")
+        corners = np.array([
+            [256,80],
+            [2400,32],
+            [0,2299],
+            [2667,2269]], dtype="float32")
+        dst = np.array([
+            [0, 0],
+            [1900, 0],
+            [0, 1900],
+            [1900, 1900]], dtype="float32")
+        M = cv2.getPerspectiveTransform(corners, dst)
+        originalRGBImage = cv2.warpPerspective(originalRGBImage, M, (1900, 1900))
+        originalRGBImage = cv2.resize(originalRGBImage, (1000, 1000), interpolation=cv2.INTER_CUBIC)
+
+        imageBW = cv2.imread("p6.jpg", cv2.IMREAD_GRAYSCALE)
+        corners = np.array([
+            [256,80],
+            [2400,32],
+            [0,2299],
+            [2667,2269]], dtype="float32")
+        dst = np.array([
+            [0, 0],
+            [1900, 0],
+            [0, 1900],
+            [1900, 1900]], dtype="float32")
+        M = cv2.getPerspectiveTransform(corners, dst)
+
+        imageBW = cv2.warpPerspective(imageBW, M, (1900, 1900))
+        imageBW = cv2.resize(imageBW, (1000, 1000), interpolation=cv2.INTER_CUBIC)
     # add border for checker fields detection
     imageBW = cv2.copyMakeBorder(imageBW, 2,2,2,2, cv2.BORDER_CONSTANT, value=255)
     image_HSV = cv2.cvtColor(originalRGBImage, cv2.COLOR_BGR2HSV)
@@ -210,6 +303,7 @@ def ex_1():
     greenCheckersMask = cv2.morphologyEx(cv2.inRange(image_HSV, hsv_green_lower, hsv_green_upper), cv2.MORPH_OPEN, kernel)
     # get red checkers mask
     redCheckersMask = cv2.morphologyEx(cv2.inRange(image_HSV, hsv_red_lower, hsv_red_upper), cv2.MORPH_OPEN, kernel)
+
     redCheckersMask = cv2.dilate(redCheckersMask, kernel, iterations=1)
     greenCheckersMask = cv2.dilate(greenCheckersMask, kernel, iterations=1)
 
@@ -220,6 +314,7 @@ def ex_1():
     im2, greenCheckersContours, hierarchy = cv2.findContours(greenCheckersMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     im2, redCheckersContours, hierarchy = cv2.findContours(redCheckersMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
+    # find middle point of all contours
     greenCheckersCoords = find_center_coords(greenCheckersContours)
     redCheckersCoords = find_center_coords(redCheckersContours)
 
@@ -239,6 +334,7 @@ def ex_1():
     fieldsCoords = find_center_coords(boardTilesContours)
 
     # calc distance between checkers and their fields
+    # if the distance seems ok, count the X and Y index position of the checker, and then add it to the list
     print(greenCheckersCoords)
     print(redCheckersCoords)
     print(fieldsCoords)
@@ -251,7 +347,6 @@ def ex_1():
                 X_Index_TMP = -1
                 Y_Coord_TMP = checkerCoord[1]
                 Y_Index_TMP = -1
-
                 while (X_Coord_TMP > 0):
                     X_Coord_TMP -= boardTileLength
                     X_Index_TMP += 1
@@ -260,18 +355,18 @@ def ex_1():
                     Y_Index_TMP += 1
                 stateOfTheGameList[Y_Index_TMP][X_Index_TMP] = GREEN_CHECKER_VALUE
 
-                draw_circle(checkerCoord, originalRGBImage, 7, (255, 0, 170))
-                draw_circle(fieldCoord, originalRGBImage, 7, (255, 0, 0))
+               # draw_circle(checkerCoord, originalRGBImage, 7, (255, 0, 170))
+               # draw_circle(fieldCoord, originalRGBImage, 7, (255, 0, 0))
 
     for checkerCoord in redCheckersCoords:
         for fieldCoord in fieldsCoords:
             if(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]) < boardTileLength/2):
                 print(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]))
+
                 X_Coord_TMP = checkerCoord[0]
                 X_Index_TMP = -1
                 Y_Coord_TMP = checkerCoord[1]
                 Y_Index_TMP = -1
-
                 while (X_Coord_TMP > 0):
                     X_Coord_TMP -= boardTileLength
                     X_Index_TMP += 1
@@ -280,8 +375,8 @@ def ex_1():
                     Y_Index_TMP += 1
                 stateOfTheGameList[Y_Index_TMP][X_Index_TMP] = RED_CHECKER_VALUE
 
-                draw_circle(checkerCoord, originalRGBImage, 7, (255, 0, 170))
-                draw_circle(fieldCoord, originalRGBImage, 7, (0, 0, 170))
+               # draw_circle(checkerCoord, originalRGBImage, 7, (255, 0, 170))
+               # draw_circle(fieldCoord, originalRGBImage, 7, (0, 0, 170))
 
     renderedGame = renderGameState(stateOfTheGameList)
     resizedRenderedGame = cv2.resize(renderedGame, (400, 400))
