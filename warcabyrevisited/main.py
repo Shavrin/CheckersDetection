@@ -101,9 +101,9 @@ def ex_1():
     originalRGBImage = cv2.resize(originalRGBImage,(1000,1000), interpolation = cv2.INTER_CUBIC)
 
     if (IsEvenCapture==False):
-        iteracja = 4
+        iteracja = 2
     else:
-        iteracja = 5
+        iteracja = 3
     # load images
     if (iteracja == 0):
         originalRGBImage = cv2.imread("p1.jpg")
@@ -501,31 +501,108 @@ def legal_moves(x, y):
 
 def check_move():
     global IsPlayer1
+    global hop
+    global IsEvenCapture
+
+    amountOfChanges = 0
     for x in range(0, 8):
         if (GLOBALstateOfTheGameList1[x] != GLOBALstateOfTheGameList2[x]):
             for y in range(0, 8):
                 if (GLOBALstateOfTheGameList1[x][y] != GLOBALstateOfTheGameList2[x][y]):
-                    if(GLOBALstateOfTheGameList1[x][y]!=0):
+                    amountOfChanges=amountOfChanges+1
+                    if(GLOBALstateOfTheGameList1[x][y]!=0 and IsEvenCapture == False):
                         PosistionOfChangedX=x
                         PosistionOfChangedY=y
-
-    legals=legal_moves(PosistionOfChangedX,PosistionOfChangedY)
-    for x in range(0, 8):
-        if (GLOBALstateOfTheGameList1[x] != GLOBALstateOfTheGameList2[x]):
-            for y in range(0, 8):
-                if (GLOBALstateOfTheGameList1[x][y] != GLOBALstateOfTheGameList2[x][y]):
-                    if (GLOBALstateOfTheGameList1[x][y] == 0):
+                    elif (GLOBALstateOfTheGameList2[x][y] != 0 and IsEvenCapture == True):
                         PosistionOfChangedX = x
                         PosistionOfChangedY = y
-    IsCorrect=False
-    for move in legals:
-        if(move[0]==PosistionOfChangedX and move[1]==PosistionOfChangedY):
-            IsCorrect=True
 
-    if IsCorrect==True:
-        print("RUCH WYKONANY POPRAWNIE")
+    if(amountOfChanges<4):
+        legals=legal_moves(PosistionOfChangedX,PosistionOfChangedY)
+        for x in range(0, 8):
+            if (GLOBALstateOfTheGameList1[x] != GLOBALstateOfTheGameList2[x]):
+                for y in range(0, 8):
+                    if (GLOBALstateOfTheGameList1[x][y] != GLOBALstateOfTheGameList2[x][y]):
+                        if (GLOBALstateOfTheGameList1[x][y] == 0 and IsEvenCapture == False):
+                            PosistionOfChangedX = x
+                            PosistionOfChangedY = y
+                        elif (GLOBALstateOfTheGameList2[x][y] == 0 and IsEvenCapture == True):
+                            PosistionOfChangedX = x
+                            PosistionOfChangedY = y
+        IsCorrect=False
+        for move in legals:
+            if(move[0]==PosistionOfChangedX and move[1]==PosistionOfChangedY):
+                IsCorrect=True
+
+        if(amountOfChanges==3 and IsPlayer1==True):
+            PosistionOfGreenX=-1
+            PosistionOfGreenY=-1
+            for x in range(0, 8):
+                if (GLOBALstateOfTheGameList1[x] != GLOBALstateOfTheGameList2[x]):
+                    for y in range(0, 8):
+                        if (GLOBALstateOfTheGameList1[x][y] != GLOBALstateOfTheGameList2[x][y]):
+                            if(IsEvenCapture == False):
+                                if (GLOBALstateOfTheGameList1[x][y] == 3):
+                                    FirstPosistionOfRedX = x
+                                    FirstPosistionOfRedY = y
+                                elif (GLOBALstateOfTheGameList2[x][y] == 3):
+                                    SecondPosistionOfRedX = x
+                                    SecondPosistionOfRedY = y
+                                elif (GLOBALstateOfTheGameList1[x][y] == 1):
+                                    PosistionOfGreenX = x
+                                    PosistionOfGreenY = y
+                            else:
+                                if (GLOBALstateOfTheGameList2[x][y] == 3):
+                                    FirstPosistionOfRedX = x
+                                    FirstPosistionOfRedY = y
+                                elif (GLOBALstateOfTheGameList1[x][y] == 3):
+                                    SecondPosistionOfRedX = x
+                                    SecondPosistionOfRedY = y
+                                elif (GLOBALstateOfTheGameList2[x][y] == 1):
+                                    PosistionOfGreenX = x
+                                    PosistionOfGreenY = y
+
+            if (FirstPosistionOfRedX + SecondPosistionOfRedX)/2 != PosistionOfGreenX or (FirstPosistionOfRedY +SecondPosistionOfRedY)/2 != PosistionOfGreenY:
+                IsCorrect=False
+
+        elif (amountOfChanges == 3 and IsPlayer1 == False):
+            PosistionOfRedY=-1
+            PosistionOfRedX=-1
+            for x in range(0, 8):
+                if (GLOBALstateOfTheGameList1[x] != GLOBALstateOfTheGameList2[x]):
+                    for y in range(0, 8):
+                        if (GLOBALstateOfTheGameList1[x][y] != GLOBALstateOfTheGameList2[x][y]):
+                            if(IsEvenCapture == False):
+                                if (GLOBALstateOfTheGameList1[x][y] == 1):
+                                    FirstPosistionOfGreenX = x
+                                    FirstPosistionOfGreenY = y
+                                elif (GLOBALstateOfTheGameList2[x][y] == 1):
+                                    SecondPosistionOfGreenX = x
+                                    SecondPosistionOfGreenY = y
+                                elif (GLOBALstateOfTheGameList1[x][y] == 3):
+                                    PosistionOfRedX = x
+                                    PosistionOfRedY = y
+                            else:
+                                if (GLOBALstateOfTheGameList2[x][y] == 1):
+                                    FirstPosistionOfGreenX = x
+                                    FirstPosistionOfGreenY = y
+                                elif (GLOBALstateOfTheGameList1[x][y] == 1):
+                                    SecondPosistionOfGreenX = x
+                                    SecondPosistionOfGreenY = y
+                                elif (GLOBALstateOfTheGameList2[x][y] == 3):
+                                    PosistionOfRedX = x
+                                    PosistionOfRedY = y
+
+            if (FirstPosistionOfGreenX + SecondPosistionOfGreenX)/2 != PosistionOfRedX or (FirstPosistionOfGreenY + SecondPosistionOfGreenY)/2 != PosistionOfRedY:
+                IsCorrect = False
+
+        if IsCorrect==True:
+            print("RUCH WYKONANY POPRAWNIE")
+        else:
+            print("RUCH WYKONANY NIEPOPRAWNIE")
+
     else:
-        print("RUCH WYKONANY NIEPOPRAWNIE")
+        print("RUCH WYKONANY NIEPOPRAWNIE. ZBYT DUŻO ZMIAN POZYCJI PIONKÓW")
 
 if __name__ == "__main__":
     app = gui("Warcaby Revisited", "550x850")
