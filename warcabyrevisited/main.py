@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import math
+import urllib.request
 
 from appJar import gui
 from PIL import Image, ImageTk
@@ -14,6 +15,7 @@ GLOBALstateOfTheGameList2 = [x[:] for x in [[0] * 8] * 8]
 IsEvenCapture = False
 IsPlayer1= True
 hop=False
+url='http://192.168.0.103:8080/shot.jpg'
 
 def find_center_coords(contours):
     # loop over the contours
@@ -53,7 +55,18 @@ def renderGameState(gameStateList):
                 continue
     return game
 
+def fetchImage():
+    global url
+    with urllib.request.urlopen(url) as response:
+        html = response.read()
 
+    imgResponse = urllib.request.urlopen(url)
+    imgNumpy = np.array(bytearray(imgResponse.read()),dtype=np.uint8)
+    img = cv2.imdecode(imgNumpy,-1)
+    size = int((img.shape[1] - img.shape[0] )/ 2)
+    img = img[:,size:img.shape[0]+size]
+
+    return img
 def ex_1():
     global BLANK
     global GLOBALstateOfTheGameList2
@@ -84,213 +97,11 @@ def ex_1():
     hsv_red_lower = np.array([170, 100, 100])
     hsv_red_upper = np.array([180, 255, 255])
 
-    # load images
-    originalRGBImage = cv2.imread("p1.jpg")
-    corners = np.array([
-        [40, 38],
-        [1721, 30],
-        [38, 1829],
-        [1957, 1703]], dtype="float32")
-    dst = np.array([
-        [0,0],
-        [1900,0],
-        [0,1900],
-        [1900,1900]], dtype="float32")
-    M = cv2.getPerspectiveTransform(corners, dst)
-    originalRGBImage = cv2.warpPerspective(originalRGBImage, M, (1900, 1900))
-    originalRGBImage = cv2.resize(originalRGBImage,(1000,1000), interpolation = cv2.INTER_CUBIC)
 
-    if (IsEvenCapture==False):
-        iteracja = 2
-    else:
-        iteracja = 3
-    # load images
-    if (iteracja == 0):
-        originalRGBImage = cv2.imread("p1.jpg")
-        corners = np.array([
-            [40, 38],
-            [1721, 30],
-            [38, 1829],
-            [1957, 1703]], dtype="float32")
-        dst = np.array([
-            [0, 0],
-            [1900, 0],
-            [0, 1900],
-            [1900, 1900]], dtype="float32")
-        M = cv2.getPerspectiveTransform(corners, dst)
-        originalRGBImage = cv2.warpPerspective(originalRGBImage, M, (1900, 1900))
-        originalRGBImage = cv2.resize(originalRGBImage, (1000, 1000), interpolation=cv2.INTER_CUBIC)
+    originalRGBImage = fetchImage()
 
-        imageBW = cv2.imread("p1.jpg", cv2.IMREAD_GRAYSCALE)
-        corners = np.array([
-            [40, 38],
-            [1721, 30],
-            [38, 1829],
-            [1957, 1703]], dtype="float32")
-        dst = np.array([
-            [0, 0],
-            [1900, 0],
-            [0, 1900],
-            [1900, 1900]], dtype="float32")
-        M = cv2.getPerspectiveTransform(corners, dst)
+    imageBW = cv2.cvtColor(originalRGBImage, cv2.COLOR_BGR2GRAY)
 
-        imageBW = cv2.warpPerspective(imageBW, M, (1900, 1900))
-        imageBW = cv2.resize(imageBW, (1000, 1000), interpolation=cv2.INTER_CUBIC)
-    elif (iteracja == 1):
-        originalRGBImage = cv2.imread("p2.jpg")
-        corners = np.array([
-            [300, 23],
-            [2360, 125],
-            [8, 2190],
-            [2575, 2200]], dtype="float32")
-        dst = np.array([
-            [0, 0],
-            [1900, 0],
-            [0, 1900],
-            [1900, 1900]], dtype="float32")
-        M = cv2.getPerspectiveTransform(corners, dst)
-        originalRGBImage = cv2.warpPerspective(originalRGBImage, M, (1900, 1900))
-        originalRGBImage = cv2.resize(originalRGBImage, (1000, 1000), interpolation=cv2.INTER_CUBIC)
-
-        imageBW = cv2.imread("p2.jpg", cv2.IMREAD_GRAYSCALE)
-        corners = np.array([
-            [300, 23],
-            [2360, 125],
-            [8, 2190],
-            [2575, 2200]], dtype="float32")
-        dst = np.array([
-            [0, 0],
-            [1900, 0],
-            [0, 1900],
-            [1900, 1900]], dtype="float32")
-        M = cv2.getPerspectiveTransform(corners, dst)
-
-        imageBW = cv2.warpPerspective(imageBW, M, (1900, 1900))
-        imageBW = cv2.resize(imageBW, (1000, 1000), interpolation=cv2.INTER_CUBIC)
-    elif(iteracja==2):
-        originalRGBImage = cv2.imread("p3.jpg")
-        corners = np.array([
-            [300, 23],
-            [2360, 125],
-            [8, 2190],
-            [2575, 2200]], dtype="float32")
-        dst = np.array([
-            [0, 0],
-            [1900, 0],
-            [0, 1900],
-            [1900, 1900]], dtype="float32")
-        M = cv2.getPerspectiveTransform(corners, dst)
-        originalRGBImage = cv2.warpPerspective(originalRGBImage, M, (1900, 1900))
-        originalRGBImage = cv2.resize(originalRGBImage, (1000, 1000), interpolation=cv2.INTER_CUBIC)
-
-        imageBW = cv2.imread("p3.jpg", cv2.IMREAD_GRAYSCALE)
-        corners = np.array([
-            [300, 23],
-            [2410, 41],
-            [8, 2190],
-            [2676, 2148]], dtype="float32")
-        dst = np.array([
-            [0, 0],
-            [1900, 0],
-            [0, 1900],
-            [1900, 1900]], dtype="float32")
-        M = cv2.getPerspectiveTransform(corners, dst)
-
-        imageBW = cv2.warpPerspective(imageBW, M, (1900, 1900))
-        imageBW = cv2.resize(imageBW, (1000, 1000), interpolation=cv2.INTER_CUBIC)
-    elif(iteracja == 3):
-        originalRGBImage = cv2.imread("p4.jpg")
-        corners = np.array([
-            [382, 100],
-            [2420, 90],
-            [19,2169],
-            [2682,2178]], dtype="float32")
-        dst = np.array([
-            [0, 0],
-            [1900, 0],
-            [0, 1900],
-            [1900, 1900]], dtype="float32")
-        M = cv2.getPerspectiveTransform(corners, dst)
-        originalRGBImage = cv2.warpPerspective(originalRGBImage, M, (1900, 1900))
-        originalRGBImage = cv2.resize(originalRGBImage, (1000, 1000), interpolation=cv2.INTER_CUBIC)
-
-        imageBW = cv2.imread("p4.jpg", cv2.IMREAD_GRAYSCALE)
-        corners = np.array([
-            [382, 100],
-            [2420, 90],
-            [19,2169],
-            [2682,2178]], dtype="float32")
-        dst = np.array([
-            [0, 0],
-            [1900, 0],
-            [0, 1900],
-            [1900, 1900]], dtype="float32")
-        M = cv2.getPerspectiveTransform(corners, dst)
-
-        imageBW = cv2.warpPerspective(imageBW, M, (1900, 1900))
-        imageBW = cv2.resize(imageBW, (1000, 1000), interpolation=cv2.INTER_CUBIC)
-    elif (iteracja == 4):
-        originalRGBImage = cv2.imread("p5.jpg")
-        corners = np.array([
-            [355,49],
-            [2492,51],
-            [9, 2273],
-            [2711,2161]], dtype="float32")
-        dst = np.array([
-            [0, 0],
-            [1900, 0],
-            [0, 1900],
-            [1900, 1900]], dtype="float32")
-        M = cv2.getPerspectiveTransform(corners, dst)
-        originalRGBImage = cv2.warpPerspective(originalRGBImage, M, (1900, 1900))
-        originalRGBImage = cv2.resize(originalRGBImage, (1000, 1000), interpolation=cv2.INTER_CUBIC)
-
-        imageBW = cv2.imread("p5.jpg", cv2.IMREAD_GRAYSCALE)
-        corners = np.array([
-            [355,49],
-            [2492,51],
-            [9, 2273],
-            [2711,2161]], dtype="float32")
-        dst = np.array([
-            [0, 0],
-            [1900, 0],
-            [0, 1900],
-            [1900, 1900]], dtype="float32")
-        M = cv2.getPerspectiveTransform(corners, dst)
-
-        imageBW = cv2.warpPerspective(imageBW, M, (1900, 1900))
-        imageBW = cv2.resize(imageBW, (1000, 1000), interpolation=cv2.INTER_CUBIC)
-    elif (iteracja == 5):
-        originalRGBImage = cv2.imread("p6.jpg")
-        corners = np.array([
-            [256,80],
-            [2400,32],
-            [0,2299],
-            [2667,2269]], dtype="float32")
-        dst = np.array([
-            [0, 0],
-            [1900, 0],
-            [0, 1900],
-            [1900, 1900]], dtype="float32")
-        M = cv2.getPerspectiveTransform(corners, dst)
-        originalRGBImage = cv2.warpPerspective(originalRGBImage, M, (1900, 1900))
-        originalRGBImage = cv2.resize(originalRGBImage, (1000, 1000), interpolation=cv2.INTER_CUBIC)
-
-        imageBW = cv2.imread("p6.jpg", cv2.IMREAD_GRAYSCALE)
-        corners = np.array([
-            [256,80],
-            [2400,32],
-            [0,2299],
-            [2667,2269]], dtype="float32")
-        dst = np.array([
-            [0, 0],
-            [1900, 0],
-            [0, 1900],
-            [1900, 1900]], dtype="float32")
-        M = cv2.getPerspectiveTransform(corners, dst)
-
-        imageBW = cv2.warpPerspective(imageBW, M, (1900, 1900))
-        imageBW = cv2.resize(imageBW, (1000, 1000), interpolation=cv2.INTER_CUBIC)
     # add border for checker fields detection
     imageBW = cv2.copyMakeBorder(imageBW, 2,2,2,2, cv2.BORDER_CONSTANT, value=255)
     image_HSV = cv2.cvtColor(originalRGBImage, cv2.COLOR_BGR2HSV)
