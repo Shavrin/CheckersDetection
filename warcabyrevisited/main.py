@@ -18,6 +18,8 @@ IsPlayer1= True
 hop=False
 url='http://192.168.0.100:8080/shot.jpg'
 
+
+
 def find_center_coords(contours):
     # loop over the contours
     d = []
@@ -91,12 +93,14 @@ def ex_1():
     RED_QUEEN_VALUE = 4
     stateOfTheGameList = [x[:] for x in [[NO_CHECKER_VALUE] * 8] * 8]
 
-
     # color ranges for checkers detection
     hsv_green_lower = np.array([30, 0, 100])
     hsv_green_upper = np.array([80, 255, 255])
     hsv_red_lower = np.array([170, 100, 100])
     hsv_red_upper = np.array([180, 255, 255])
+
+    hsv_blue_lower = np.array([100, 160, 0])
+    hsv_blue_upper = np.array([140, 255, 255])
 
     try:
         originalRGBImage = fetchImage()
@@ -203,22 +207,22 @@ def ex_1():
     print(GLOBALstateOfTheGameList1)
     print(GLOBALstateOfTheGameList2)
 
-    if BLANK == True:
-        app.startLabelFrame("state", 0, 0)
-        photo1 = ImageTk.PhotoImage(Image.open("originalRGB.jpg"))
-        app.addImageData("state", photo1, fmt="PhotoImage" )
-        app.stopLabelFrame()
-
-        app.startLabelFrame("renderedGame", 1, 0)
-        photo2 = ImageTk.PhotoImage(Image.open("renderedGame.jpg"))
-        app.addImageData("renderedGame", photo2, fmt="PhotoImage")
-        app.stopLabelFrame()
-        BLANK = False
-    else:
-        photo1 = ImageTk.PhotoImage(Image.open("originalRGB.jpg"))
-        app.reloadImageData("state", photo1, fmt="PhotoImage")
-        photo2 = ImageTk.PhotoImage(Image.open("renderedGame.jpg"))
-        app.reloadImageData("renderedGame", photo2, fmt="PhotoImage")
+    # if BLANK == True:
+    #     app.startLabelFrame("state", 0, 0)
+    #     photo1 = ImageTk.PhotoImage(Image.open("originalRGB.jpg"))
+    #     app.addImageData("state", photo1, fmt="PhotoImage" )
+    #     app.stopLabelFrame()
+    #
+    #     app.startLabelFrame("renderedGame", 1, 0)
+    #     photo2 = ImageTk.PhotoImage(Image.open("renderedGame.jpg"))
+    #     app.addImageData("renderedGame", photo2, fmt="PhotoImage")
+    #     app.stopLabelFrame()
+    #     BLANK = False
+    # else:
+    photo1 = ImageTk.PhotoImage(Image.open("originalRGB.jpg"))
+    app.reloadImageData("state", photo1, fmt="PhotoImage")
+    photo2 = ImageTk.PhotoImage(Image.open("renderedGame.jpg"))
+    app.reloadImageData("renderedGame", photo2, fmt="PhotoImage")
 
     IsEvenCapture = not IsEvenCapture
     cv2.destroyAllWindows()
@@ -418,7 +422,7 @@ def check_move():
     else:
         print("RUCH WYKONANY NIEPOPRAWNIE. ZBYT DUŻO ZMIAN POZYCJI PIONKÓW")
 
-def connect(event):
+def click(event):
     global url
     if event == "Capture":
         tempUrl = app.getEntry("IP")
@@ -433,17 +437,49 @@ def connect(event):
     return
 
 if __name__ == "__main__":
-    # initWindow = gui("Checkers Detection - Connecting","400x265")
-    # initWindow.addLabel("title", "Enter the IP Address of the IP Webcam")
-    # initWindow.addLabelEntry("IP Address: ")
-    # initWindow.addButton("Connect", connect)
-    # initWindow.setResizable(False)
-    # initWindow.go()
 
+    hsv_green_lower_defaults = [30, 0, 100]
+    hsv_green_upper_defaults = [80, 255, 255]
+    hsv_red_lower_defaults = [170, 100, 100]
+    hsv_red_upper_defaults = [180, 255, 255]
+    hsv_blue_lower_defaults = [100, 160, 0]
+    hsv_blue_upper_defaults = [140, 255, 255]
+
+    color_range_names = ["Green H", "Green S", "Green V",
+                         "Red H", "Red S", "Red V",
+                         "Blue H","Blue S","Blue V"]
 
     app = gui("Warcaby Revisited", "550x850")
+    app.startTabbedFrame("Application")
 
-    app.addButton("Capture", connect, row=0, column=1)
+    app.startTab("Configuration")
+
+    for val in color_range_names:
+        app.addLabelScale(val)
+        app.setScaleRange(val,0, 255)
+        app.showScaleValue(val, show=True)
+        #app.setScale(val,)
+    app.stopTab()
+
+    app.startTab("Game")
+
+    app.addButton("Capture", click, row=0, column=1)
     app.addButton("Check Move", check_move, row=1, column=1)
     app.addLabelEntry("IP")
+
+    app.startLabelFrame("Captured Image", 0, 0)
+    photo1 = ImageTk.PhotoImage(Image.open("initCapturedImage.jpg"))
+    app.addImageData("state", photo1, fmt="PhotoImage")
+    app.stopLabelFrame()
+
+    app.startLabelFrame("Game State", 1, 0)
+    photo2 = ImageTk.PhotoImage(Image.open("board400.png"))
+    app.addImageData("renderedGame", photo2, fmt="PhotoImage")
+    app.stopLabelFrame()
+    #BLANK = False
+
+
+    app.stopTab()
+    app.stopTabbedFrame()
+
     app.go()
