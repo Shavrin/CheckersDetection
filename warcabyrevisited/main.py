@@ -94,13 +94,20 @@ def ex_1():
     stateOfTheGameList = [x[:] for x in [[NO_CHECKER_VALUE] * 8] * 8]
 
     # color ranges for checkers detection
-    hsv_green_lower = np.array([30, 0, 100])
-    hsv_green_upper = np.array([80, 255, 255])
-    hsv_red_lower = np.array([170, 100, 100])
-    hsv_red_upper = np.array([180, 255, 255])
 
-    hsv_blue_lower = np.array([100, 160, 0])
-    hsv_blue_upper = np.array([140, 255, 255])
+    hsv_green_lower_sliders = [app.getScale("green_lower H"),   app.getScale("green_lower S"),  app.getScale("green_lower V")]
+    hsv_green_upper_sliders = [app.getScale("green_upper H"),   app.getScale("green_lower S"),  app.getScale("green_lower V")]
+    hsv_red_lower_sliders   = [app.getScale("red_lower H"),     app.getScale("red_lower S"),    app.getScale("red_lower V")]
+    hsv_red_upper_sliders   = [app.getScale("red_lower H"),     app.getScale("red_lower S"),    app.getScale("red_lower V")]
+    hsv_blue_lower_sliders  = [app.getScale("blue_lower H"),    app.getScale("blue_lower S"),   app.getScale("blue_lower V")]
+    hsv_blue_upper_sliders  = [app.getScale("blue_lower H"),    app.getScale("blue_lower S"),   app.getScale("blue_lower V")]
+
+    hsv_green_lower = np.array(hsv_green_lower_sliders)
+    hsv_green_upper = np.array(hsv_green_upper_sliders)
+    hsv_red_lower   = np.array(hsv_red_lower_sliders)
+    hsv_red_upper   = np.array(hsv_red_upper_sliders)
+    hsv_blue_lower  = np.array(hsv_blue_lower_sliders)
+    hsv_blue_upper  = np.array(hsv_blue_upper_sliders)
 
     try:
         originalRGBImage = fetchImage()
