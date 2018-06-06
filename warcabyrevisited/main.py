@@ -96,11 +96,11 @@ def ex_1():
     # color ranges for checkers detection
 
     hsv_green_lower_sliders = [app.getScale("green_lower H"),   app.getScale("green_lower S"),  app.getScale("green_lower V")]
-    hsv_green_upper_sliders = [app.getScale("green_upper H"),   app.getScale("green_lower S"),  app.getScale("green_lower V")]
+    hsv_green_upper_sliders = [app.getScale("green_upper H"),   app.getScale("green_upper S"),  app.getScale("green_upper V")]
     hsv_red_lower_sliders   = [app.getScale("red_lower H"),     app.getScale("red_lower S"),    app.getScale("red_lower V")]
-    hsv_red_upper_sliders   = [app.getScale("red_lower H"),     app.getScale("red_lower S"),    app.getScale("red_lower V")]
+    hsv_red_upper_sliders   = [app.getScale("red_upper H"),     app.getScale("red_upper S"),    app.getScale("red_upper V")]
     hsv_blue_lower_sliders  = [app.getScale("blue_lower H"),    app.getScale("blue_lower S"),   app.getScale("blue_lower V")]
-    hsv_blue_upper_sliders  = [app.getScale("blue_lower H"),    app.getScale("blue_lower S"),   app.getScale("blue_lower V")]
+    hsv_blue_upper_sliders  = [app.getScale("blue_upper H"),    app.getScale("blue_upper S"),   app.getScale("blue_upper V")]
 
     hsv_green_lower = np.array(hsv_green_lower_sliders)
     hsv_green_upper = np.array(hsv_green_upper_sliders)
