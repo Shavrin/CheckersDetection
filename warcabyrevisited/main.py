@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import math
 import urllib.request
+import socket
 
 from appJar import gui
 from PIL import Image, ImageTk
@@ -15,7 +16,9 @@ GLOBALstateOfTheGameList2 = [x[:] for x in [[0] * 8] * 8]
 IsEvenCapture = False
 IsPlayer1= True
 hop=False
-url='http://192.168.0.103:8080/shot.jpg'
+url='http://192.168.0.100:8080/shot.jpg'
+
+
 
 def find_center_coords(contours):
     # loop over the contours
@@ -90,16 +93,27 @@ def ex_1():
     RED_QUEEN_VALUE = 4
     stateOfTheGameList = [x[:] for x in [[NO_CHECKER_VALUE] * 8] * 8]
 
-
     # color ranges for checkers detection
-    hsv_green_lower = np.array([30, 0, 100])
-    hsv_green_upper = np.array([80, 255, 255])
-    hsv_red_lower = np.array([170, 100, 100])
-    hsv_red_upper = np.array([180, 255, 255])
 
+    hsv_green_lower_sliders = [app.getScale("green_lower H"),   app.getScale("green_lower S"),  app.getScale("green_lower V")]
+    hsv_green_upper_sliders = [app.getScale("green_upper H"),   app.getScale("green_upper S"),  app.getScale("green_upper V")]
+    hsv_red_lower_sliders   = [app.getScale("red_lower H"),     app.getScale("red_lower S"),    app.getScale("red_lower V")]
+    hsv_red_upper_sliders   = [app.getScale("red_upper H"),     app.getScale("red_upper S"),    app.getScale("red_upper V")]
+    hsv_blue_lower_sliders  = [app.getScale("blue_lower H"),    app.getScale("blue_lower S"),   app.getScale("blue_lower V")]
+    hsv_blue_upper_sliders  = [app.getScale("blue_upper H"),    app.getScale("blue_upper S"),   app.getScale("blue_upper V")]
 
-    originalRGBImage = fetchImage()
+    hsv_green_lower = np.array(hsv_green_lower_sliders)
+    hsv_green_upper = np.array(hsv_green_upper_sliders)
+    hsv_red_lower   = np.array(hsv_red_lower_sliders)
+    hsv_red_upper   = np.array(hsv_red_upper_sliders)
+    hsv_blue_lower  = np.array(hsv_blue_lower_sliders)
+    hsv_blue_upper  = np.array(hsv_blue_upper_sliders)
 
+    try:
+        originalRGBImage = fetchImage()
+    except urllib.error.URLError as err:
+        app.errorBox("Error",err)
+        return
     imageBW = cv2.cvtColor(originalRGBImage, cv2.COLOR_BGR2GRAY)
 
     # add border for checker fields detection
@@ -200,22 +214,22 @@ def ex_1():
     print(GLOBALstateOfTheGameList1)
     print(GLOBALstateOfTheGameList2)
 
-    if BLANK == True:
-        app.startLabelFrame("state", 0, 0)
-        photo1 = ImageTk.PhotoImage(Image.open("originalRGB.jpg"))
-        app.addImageData("state", photo1, fmt="PhotoImage" )
-        app.stopLabelFrame()
-
-        app.startLabelFrame("renderedGame", 1, 0)
-        photo2 = ImageTk.PhotoImage(Image.open("renderedGame.jpg"))
-        app.addImageData("renderedGame", photo2, fmt="PhotoImage")
-        app.stopLabelFrame()
-        BLANK = False
-    else:
-        photo1 = ImageTk.PhotoImage(Image.open("originalRGB.jpg"))
-        app.reloadImageData("state", photo1, fmt="PhotoImage")
-        photo2 = ImageTk.PhotoImage(Image.open("renderedGame.jpg"))
-        app.reloadImageData("renderedGame", photo2, fmt="PhotoImage")
+    # if BLANK == True:
+    #     app.startLabelFrame("state", 0, 0)
+    #     photo1 = ImageTk.PhotoImage(Image.open("originalRGB.jpg"))
+    #     app.addImageData("state", photo1, fmt="PhotoImage" )
+    #     app.stopLabelFrame()
+    #
+    #     app.startLabelFrame("renderedGame", 1, 0)
+    #     photo2 = ImageTk.PhotoImage(Image.open("renderedGame.jpg"))
+    #     app.addImageData("renderedGame", photo2, fmt="PhotoImage")
+    #     app.stopLabelFrame()
+    #     BLANK = False
+    # else:
+    photo1 = ImageTk.PhotoImage(Image.open("originalRGB.jpg"))
+    app.reloadImageData("state", photo1, fmt="PhotoImage")
+    photo2 = ImageTk.PhotoImage(Image.open("renderedGame.jpg"))
+    app.reloadImageData("renderedGame", photo2, fmt="PhotoImage")
 
     IsEvenCapture = not IsEvenCapture
     cv2.destroyAllWindows()
@@ -415,9 +429,77 @@ def check_move():
     else:
         print("RUCH WYKONANY NIEPOPRAWNIE. ZBYT DUŻO ZMIAN POZYCJI PIONKÓW")
 
-if __name__ == "__main__":
-    app = gui("Warcaby Revisited", "550x850")
+def click(event):
+    global url
+    if event == "Capture":
+        tempUrl = app.getEntry("IP")
 
-    app.addButton("Capture", ex_1, row=0, column=1)
+        try:
+            socket.inet_aton(tempUrl)
+        except socket.error:
+            app.errorBox("Error!","Invalid IP Address..")
+            return
+        url = 'http://' + tempUrl + ':8080/shot.jpg'
+        ex_1()
+    return
+
+if __name__ == "__main__":
+    ranges = {
+        'green_lower' :[30, 0, 100],
+        'green_upper': [80, 255, 255],
+        'red_lower' : [170, 100, 100],
+        'red_upper': [180, 255, 255],
+        'blue_lower' : [100, 160, 0],
+        'blue_upper' : [140, 255, 255],
+    }
+    color_range_names = ["Green H", "Green S", "Green V",
+                         "Red H", "Red S", "Red V",
+                         "Blue H","Blue S","Blue V"]
+    color_ranges = ["H","S","V"]
+    colors = ["green_upper","green_lower",
+              "red_upper","red_lower",
+              "blue_upper","blue_lower"]
+
+    app = gui("Warcaby Revisited", "850x850")
+    app.startTabbedFrame("Application")
+
+    app.startTab("Configuration")
+    app.startScrollPane("Values")
+    app.addLabelEntry("IP")
+    app.setEntry("IP","192.168.0.100")
+    for val in colors:
+        app.startLabelFrame(val)
+        for col in color_ranges:
+            app.addLabelScale(val + " " + col)
+            app.setScaleRange(val + " " + col, 0, 255)
+            app.showScaleValue(val + " " + col, show=True)
+        app.setScale(val + " " + "H", ranges[val][0])
+        app.setScale(val + " " + "S", ranges[val][1])
+        app.setScale(val + " " + "V", ranges[val][2])
+
+
+        app.stopLabelFrame()
+
+    app.stopScrollPane()
+    app.stopTab()
+
+    app.startTab("Game")
+
+    app.addButton("Capture", click, row=1, column=0)
     app.addButton("Check Move", check_move, row=1, column=1)
+
+    app.startLabelFrame("Captured Image", 0, 0)
+    photo1 = ImageTk.PhotoImage(Image.open("initCapturedImage.jpg"))
+    app.addImageData("state", photo1, fmt="PhotoImage")
+    app.stopLabelFrame()
+
+    app.startLabelFrame("Game State", 0, 1)
+    photo2 = ImageTk.PhotoImage(Image.open("board400.png"))
+    app.addImageData("renderedGame", photo2, fmt="PhotoImage")
+    app.stopLabelFrame()
+
+
+    app.stopTab()
+    app.stopTabbedFrame()
+
     app.go()
