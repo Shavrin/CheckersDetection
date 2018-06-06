@@ -457,7 +457,9 @@ if __name__ == "__main__":
     app.startTabbedFrame("Application")
 
     app.startTab("Configuration")
-    #app.startScrollPane("Values")
+    app.startScrollPane("Values")
+    app.addLabelEntry("IP")
+    app.setEntry("IP","192.168.0.100")
     for val in colors:
         app.startLabelFrame(val)
         for col in color_ranges:
@@ -469,17 +471,15 @@ if __name__ == "__main__":
         app.setScale(val + " " + "V", ranges[val][2])
 
 
-        #app.setScale(val,)
         app.stopLabelFrame()
 
-    #app.stopScrollPane()
+    app.stopScrollPane()
     app.stopTab()
 
     app.startTab("Game")
 
     app.addButton("Capture", click, row=0, column=1)
     app.addButton("Check Move", check_move, row=1, column=1)
-    app.addLabelEntry("IP")
 
     app.startLabelFrame("Captured Image", 0, 0)
     photo1 = ImageTk.PhotoImage(Image.open("initCapturedImage.jpg"))
@@ -490,7 +490,6 @@ if __name__ == "__main__":
     photo2 = ImageTk.PhotoImage(Image.open("board400.png"))
     app.addImageData("renderedGame", photo2, fmt="PhotoImage")
     app.stopLabelFrame()
-    #BLANK = False
 
 
     app.stopTab()
