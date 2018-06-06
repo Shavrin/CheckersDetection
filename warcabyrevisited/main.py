@@ -460,7 +460,7 @@ if __name__ == "__main__":
               "red_upper","red_lower",
               "blue_upper","blue_lower"]
 
-    app = gui("Warcaby Revisited", "550x850")
+    app = gui("Warcaby Revisited", "850x850")
     app.startTabbedFrame("Application")
 
     app.startTab("Configuration")
@@ -485,7 +485,7 @@ if __name__ == "__main__":
 
     app.startTab("Game")
 
-    app.addButton("Capture", click, row=0, column=1)
+    app.addButton("Capture", click, row=1, column=0)
     app.addButton("Check Move", check_move, row=1, column=1)
 
     app.startLabelFrame("Captured Image", 0, 0)
@@ -493,7 +493,7 @@ if __name__ == "__main__":
     app.addImageData("state", photo1, fmt="PhotoImage")
     app.stopLabelFrame()
 
-    app.startLabelFrame("Game State", 1, 0)
+    app.startLabelFrame("Game State", 0, 1)
     photo2 = ImageTk.PhotoImage(Image.open("board400.png"))
     app.addImageData("renderedGame", photo2, fmt="PhotoImage")
     app.stopLabelFrame()
