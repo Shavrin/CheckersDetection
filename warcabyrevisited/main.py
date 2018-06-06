@@ -422,12 +422,14 @@ def check_move():
                 IsCorrect = False
 
         if IsCorrect==True:
-            print("RUCH WYKONANY POPRAWNIE")
+            app.setLabel("Status", "RUCH WYKONANY POPRAWNIE")
+            app.setLabelBg("Status", "green")
         else:
-            print("RUCH WYKONANY NIEPOPRAWNIE")
-
+            app.setLabel("Status", "RUCH WYKONANY NIEPOPRAWNIE")
+            app.setLabelBg("Status", "red")
     else:
-        print("RUCH WYKONANY NIEPOPRAWNIE. ZBYT DUŻO ZMIAN POZYCJI PIONKÓW")
+        app.setLabel("Status","RUCH WYKONANY NIEPOPRAWNIE. ZBYT DUŻO ZMIAN POZYCJI PIONKÓW")
+        app.setLabelBg("Status","red")
 
 def click(event):
     global url
@@ -487,7 +489,7 @@ if __name__ == "__main__":
 
     app.addButton("Capture", click, row=1, column=0)
     app.addButton("Check Move", check_move, row=1, column=1)
-
+    app.addLabel("Status","",row=2,colspan=3)
     app.startLabelFrame("Captured Image", 0, 0)
     photo1 = ImageTk.PhotoImage(Image.open("initCapturedImage.jpg"))
     app.addImageData("state", photo1, fmt="PhotoImage")
