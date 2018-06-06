@@ -437,28 +437,42 @@ def click(event):
     return
 
 if __name__ == "__main__":
-
-    hsv_green_lower_defaults = [30, 0, 100]
-    hsv_green_upper_defaults = [80, 255, 255]
-    hsv_red_lower_defaults = [170, 100, 100]
-    hsv_red_upper_defaults = [180, 255, 255]
-    hsv_blue_lower_defaults = [100, 160, 0]
-    hsv_blue_upper_defaults = [140, 255, 255]
-
+    ranges = {
+        'green_lower' :[30, 0, 100],
+        'green_upper': [80, 255, 255],
+        'red_lower' : [170, 100, 100],
+        'red_upper': [180, 255, 255],
+        'blue_lower' : [100, 160, 0],
+        'blue_upper' : [140, 255, 255],
+    }
     color_range_names = ["Green H", "Green S", "Green V",
                          "Red H", "Red S", "Red V",
                          "Blue H","Blue S","Blue V"]
+    color_ranges = ["H","S","V"]
+    colors = ["green_upper","green_lower",
+              "red_upper","red_lower",
+              "blue_upper","blue_lower"]
 
     app = gui("Warcaby Revisited", "550x850")
     app.startTabbedFrame("Application")
 
     app.startTab("Configuration")
+    #app.startScrollPane("Values")
+    for val in colors:
+        app.startLabelFrame(val)
+        for col in color_ranges:
+            app.addLabelScale(val + " " + col)
+            app.setScaleRange(val + " " + col, 0, 255)
+            app.showScaleValue(val + " " + col, show=True)
+        app.setScale(val + " " + "H", ranges[val][0])
+        app.setScale(val + " " + "S", ranges[val][1])
+        app.setScale(val + " " + "V", ranges[val][2])
 
-    for val in color_range_names:
-        app.addLabelScale(val)
-        app.setScaleRange(val,0, 255)
-        app.showScaleValue(val, show=True)
+
         #app.setScale(val,)
+        app.stopLabelFrame()
+
+    #app.stopScrollPane()
     app.stopTab()
 
     app.startTab("Game")
