@@ -16,7 +16,7 @@ GLOBALstateOfTheGameList2 = [x[:] for x in [[0] * 8] * 8]
 IsEvenCapture = False
 IsPlayer1= True
 hop=False
-url='http://192.168.0.100:8080/shot.jpg'
+url='http://192.168.43.1:8080/shot.jpg'
 
 
 
@@ -70,6 +70,7 @@ def fetchImage():
     img = img[:,size:img.shape[0]+size]
 
     return img
+
 def ex_1():
     global BLANK
     global GLOBALstateOfTheGameList2
@@ -115,12 +116,40 @@ def ex_1():
         app.errorBox("Error",err)
         return
     imageBW = cv2.cvtColor(originalRGBImage, cv2.COLOR_BGR2GRAY)
+    image_HSV = cv2.cvtColor(originalRGBImage, cv2.COLOR_BGR2HSV)
+
+    # image shape
+    height, width, channels = originalRGBImage.shape
 
     # add border for checker fields detection
     imageBW = cv2.copyMakeBorder(imageBW, 2,2,2,2, cv2.BORDER_CONSTANT, value=255)
-    image_HSV = cv2.cvtColor(originalRGBImage, cv2.COLOR_BGR2HSV)
 
-    height, width, channels = originalRGBImage.shape
+    # detect markers
+    # get blue marker mask
+    blueMarkersMask = cv2.morphologyEx(cv2.inRange(image_HSV, hsv_blue_lower, hsv_blue_upper), cv2.MORPH_OPEN, kernel)
+    blueMarkersMask = cv2.dilate(blueMarkersMask, kernel, iterations=1)
+    # find markers contours
+    im2, blueMarkersContours, hierarchy = cv2.findContours(blueMarkersMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+    # crop image
+    img_croped = []
+    try:
+        hierarchy = hierarchy[0]
+    except:
+        hierarchy = []
+    min_x, min_y = width, height
+    max_x = max_y = 0
+    # computes the bounding box for the contour, and draws it on the frame,
+    for contour, hier in zip(blueMarkersContours, hierarchy):
+        (x, y, w, h) = cv2.boundingRect(contour)
+        min_x, max_x = min(x, min_x), max(x + w, max_x)
+        min_y, max_y = min(y, min_y), max(y + h, max_y)
+        if max_x - min_x > 0 and max_y - min_y > 0:
+            img_croped = originalRGBImage[min_y+w:max_y-w, min_x+w:max_x-w]
+
+
+    image_HSV = cv2.cvtColor(img_croped, cv2.COLOR_BGR2HSV)
+    height, width, channels = img_croped.shape
     # checker board is 8x8
     boardTileLength = width/8
 
@@ -129,11 +158,13 @@ def ex_1():
     # get red checkers mask
     redCheckersMask = cv2.morphologyEx(cv2.inRange(image_HSV, hsv_red_lower, hsv_red_upper), cv2.MORPH_OPEN, kernel)
 
-    redCheckersMask = cv2.dilate(redCheckersMask, kernel, iterations=1)
-    greenCheckersMask = cv2.dilate(greenCheckersMask, kernel, iterations=1)
+    redCheckersMask = cv2.erode(redCheckersMask, kernel, iterations=3)
+    greenCheckersMask = cv2.erode(greenCheckersMask, kernel, iterations=3)
 
-    # remove unnecessary elements from image, leaving only the board
-    ret, imageBW = cv2.threshold(imageBW, 200, 255, cv2.THRESH_BINARY)
+    # save masks
+    cv2.imwrite("blueMask.jpg", blueMarkersMask)
+    cv2.imwrite("redMask.jpg", redCheckersMask)
+    cv2.imwrite("greenMask.jpg", greenCheckersMask)
 
     # checkers detection
     im2, greenCheckersContours, hierarchy = cv2.findContours(greenCheckersMask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -143,51 +174,33 @@ def ex_1():
     greenCheckersCoords = find_center_coords(greenCheckersContours)
     redCheckersCoords = find_center_coords(redCheckersContours)
 
-    # tiles detection
-    dilation = cv2.dilate(imageBW, kernel, iterations=2)
-    resizedOriginalRGBImage = cv2.resize(originalRGBImage, (400, 400))
-    cv2.imwrite('originalRGB.jpg', resizedOriginalRGBImage)
-    im2, boardTilesContours, hierarchy = cv2.findContours(dilation, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    # save image for display
+    img_croped = cv2.resize(img_croped, (400, 400))
+    cv2.imwrite('screen1.jpg', img_croped)
 
-    # remove biggest contour (image border)
-    # Find the index of the largest contour
-    areas = [cv2.contourArea(c) for c in boardTilesContours]
-    max_index = np.argmax(areas)
-    # remove largest contour (image border)
-    boardTilesContours.pop(max_index)
-
-    fieldsCoords = find_center_coords(boardTilesContours)
-
-    # calc distance between checkers and their fields
-    # if the distance seems ok, count the X and Y index position of the checker, and then add it to the list
+    print("Green checkers coords: ")
     print(greenCheckersCoords)
+    print("Red checkers coords")
     print(redCheckersCoords)
-    print(fieldsCoords)
+    print("Board tile len: ")
     print(boardTileLength)
     for checkerCoord in greenCheckersCoords:
-        for fieldCoord in fieldsCoords:
-            if(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]) < boardTileLength/2):
-                print(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]))
-                X_Coord_TMP = checkerCoord[0]
-                X_Index_TMP = -1
-                Y_Coord_TMP = checkerCoord[1]
-                Y_Index_TMP = -1
-                while (X_Coord_TMP > 0):
-                    X_Coord_TMP -= boardTileLength
-                    X_Index_TMP += 1
-                while (Y_Coord_TMP > 0):
-                    Y_Coord_TMP -= boardTileLength
-                    Y_Index_TMP += 1
-                stateOfTheGameList[Y_Index_TMP][X_Index_TMP] = GREEN_CHECKER_VALUE
+            X_Coord_TMP = checkerCoord[0]
+            X_Index_TMP = -1
+            Y_Coord_TMP = checkerCoord[1]
+            Y_Index_TMP = -1
+            while (X_Coord_TMP > 0):
+                X_Coord_TMP -= boardTileLength
+                X_Index_TMP += 1
+            while (Y_Coord_TMP > 0):
+                Y_Coord_TMP -= boardTileLength
+                Y_Index_TMP += 1
+            stateOfTheGameList[Y_Index_TMP][X_Index_TMP] = GREEN_CHECKER_VALUE
 
-               # draw_circle(checkerCoord, originalRGBImage, 7, (255, 0, 170))
-               # draw_circle(fieldCoord, originalRGBImage, 7, (255, 0, 0))
+           # draw_circle(checkerCoord, originalRGBImage, 7, (255, 0, 170))
+           # draw_circle(fieldCoord, originalRGBImage, 7, (255, 0, 0))
 
     for checkerCoord in redCheckersCoords:
-        for fieldCoord in fieldsCoords:
-            if(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]) < boardTileLength/2):
-                print(math.hypot(checkerCoord[0] - fieldCoord[0], checkerCoord[1] - fieldCoord[1]))
-
                 X_Coord_TMP = checkerCoord[0]
                 X_Index_TMP = -1
                 Y_Coord_TMP = checkerCoord[1]
@@ -216,7 +229,7 @@ def ex_1():
 
     # if BLANK == True:
     #     app.startLabelFrame("state", 0, 0)
-    #     photo1 = ImageTk.PhotoImage(Image.open("originalRGB.jpg"))
+    #     photo1 = ImageTk.PhotoImage(Image.open("screen1.jpg"))
     #     app.addImageData("state", photo1, fmt="PhotoImage" )
     #     app.stopLabelFrame()
     #
@@ -226,7 +239,7 @@ def ex_1():
     #     app.stopLabelFrame()
     #     BLANK = False
     # else:
-    photo1 = ImageTk.PhotoImage(Image.open("originalRGB.jpg"))
+    photo1 = ImageTk.PhotoImage(Image.open("screen1.jpg"))
     app.reloadImageData("state", photo1, fmt="PhotoImage")
     photo2 = ImageTk.PhotoImage(Image.open("renderedGame.jpg"))
     app.reloadImageData("renderedGame", photo2, fmt="PhotoImage")
@@ -427,9 +440,10 @@ def check_move():
         else:
             app.setLabel("Status", "RUCH WYKONANY NIEPOPRAWNIE")
             app.setLabelBg("Status", "red")
+
     else:
-        app.setLabel("Status","RUCH WYKONANY NIEPOPRAWNIE. ZBYT DUŻO ZMIAN POZYCJI PIONKÓW")
-        app.setLabelBg("Status","red")
+        app.setLabel("Status", "RUCH WYKONANY NIEPOPRAWNIE. ZBYT DUŻO ZMIAN POZYCJI PIONKÓW")
+        app.setLabelBg("Status", "red")
 
 def click(event):
     global url
@@ -468,7 +482,7 @@ if __name__ == "__main__":
     app.startTab("Configuration")
     app.startScrollPane("Values")
     app.addLabelEntry("IP")
-    app.setEntry("IP","192.168.0.100")
+    app.setEntry("IP","192.168.43.1")
     for val in colors:
         app.startLabelFrame(val)
         for col in color_ranges:
@@ -489,7 +503,8 @@ if __name__ == "__main__":
 
     app.addButton("Capture", click, row=1, column=0)
     app.addButton("Check Move", check_move, row=1, column=1)
-    app.addLabel("Status","",row=2,colspan=3)
+    app.addLabel("Status", "", row=2, colspan=3)
+    
     app.startLabelFrame("Captured Image", 0, 0)
     photo1 = ImageTk.PhotoImage(Image.open("initCapturedImage.jpg"))
     app.addImageData("state", photo1, fmt="PhotoImage")
@@ -499,7 +514,6 @@ if __name__ == "__main__":
     photo2 = ImageTk.PhotoImage(Image.open("board400.png"))
     app.addImageData("renderedGame", photo2, fmt="PhotoImage")
     app.stopLabelFrame()
-
 
     app.stopTab()
     app.stopTabbedFrame()
