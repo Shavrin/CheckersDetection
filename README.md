@@ -1,1 +1,1 @@
-"# WarcabyRevisited-SuperProjekt" 
+#Checkers Detection Software
