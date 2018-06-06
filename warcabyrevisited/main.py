@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import math
 import urllib.request
+import socket
 
 from appJar import gui
 from PIL import Image, ImageTk
@@ -15,7 +16,7 @@ GLOBALstateOfTheGameList2 = [x[:] for x in [[0] * 8] * 8]
 IsEvenCapture = False
 IsPlayer1= True
 hop=False
-url='http://192.168.0.103:8080/shot.jpg'
+url='http://192.168.0.100:8080/shot.jpg'
 
 def find_center_coords(contours):
     # loop over the contours
@@ -97,9 +98,11 @@ def ex_1():
     hsv_red_lower = np.array([170, 100, 100])
     hsv_red_upper = np.array([180, 255, 255])
 
-
-    originalRGBImage = fetchImage()
-
+    try:
+        originalRGBImage = fetchImage()
+    except urllib.error.URLError as err:
+        app.errorBox("Error",err)
+        return
     imageBW = cv2.cvtColor(originalRGBImage, cv2.COLOR_BGR2GRAY)
 
     # add border for checker fields detection
@@ -415,9 +418,32 @@ def check_move():
     else:
         print("RUCH WYKONANY NIEPOPRAWNIE. ZBYT DUŻO ZMIAN POZYCJI PIONKÓW")
 
+def connect(event):
+    global url
+    if event == "Capture":
+        tempUrl = app.getEntry("IP")
+
+        try:
+            socket.inet_aton(tempUrl)
+        except socket.error:
+            app.errorBox("Error!","Invalid IP Address..")
+            return
+        url = 'http://' + tempUrl + ':8080/shot.jpg'
+        ex_1()
+    return
+
 if __name__ == "__main__":
+    # initWindow = gui("Checkers Detection - Connecting","400x265")
+    # initWindow.addLabel("title", "Enter the IP Address of the IP Webcam")
+    # initWindow.addLabelEntry("IP Address: ")
+    # initWindow.addButton("Connect", connect)
+    # initWindow.setResizable(False)
+    # initWindow.go()
+
+
     app = gui("Warcaby Revisited", "550x850")
 
-    app.addButton("Capture", ex_1, row=0, column=1)
+    app.addButton("Capture", connect, row=0, column=1)
     app.addButton("Check Move", check_move, row=1, column=1)
+    app.addLabelEntry("IP")
     app.go()
