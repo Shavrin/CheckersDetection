@@ -41,7 +41,7 @@ captures/
 *.idea/libraries
 *.idea/other.xml
 *.idea/workspace.xml
-
+*.idea/*
 # Keystore files
 *.jks
 
