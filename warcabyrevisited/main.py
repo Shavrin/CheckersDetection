@@ -9,15 +9,56 @@ from PIL import Image, ImageTk
 
 def nothing(x): pass
 
+
+
+# 0 - no checker
+# 1 - green checker
+# 2 - green queen
+# 3 - red checker
+# 4 - red queen
+# game field is 8x8
+NO_CHECKER_VALUE = 0
+GREEN_CHECKER_VALUE = 1
+GREEN_QUEEN_VALUE = 2
+RED_CHECKER_VALUE = 3
+RED_QUEEN_VALUE = 4
 BLANK = True
 CaptureBool = True
+stateOfTheGameListCapture = [x[:] for x in [[NO_CHECKER_VALUE] * 8] * 8]
 GLOBALstateOfTheGameList1 = [x[:] for x in [[0] * 8] * 8]
 GLOBALstateOfTheGameList2 = [x[:] for x in [[0] * 8] * 8]
 IsEvenCapture = False
 IsPlayer1= True
 hop=False
 url='http://192.168.43.1:8080/shot.jpg'
+firstSavesOfTheDay = 2
 
+def save_move():
+    global IsEvenCapture, GLOBALstateOfTheGameList1, GLOBALstateOfTheGameList2, stateOfTheGameListCapture, firstSavesOfTheDay, IsPlayer1
+    if(IsEvenCapture == False):
+        GLOBALstateOfTheGameList1 = stateOfTheGameListCapture
+    else:
+        GLOBALstateOfTheGameList2 = stateOfTheGameListCapture
+
+    IsEvenCapture = not IsEvenCapture
+
+    if(firstSavesOfTheDay==0):
+        IsPlayer1 = not IsPlayer1
+
+    else:
+        firstSavesOfTheDay -= 1
+
+    app.setLabel("Status", "")
+    app.setLabelBg("Status", "white")
+    if (IsPlayer1):
+        app.setLabel("Player", "Czerwony")
+        app.setLabelBg("Player", "red")
+    else:
+        app.setLabel("Player", "Zielony")
+        app.setLabelBg("Player", "green")
+    print(GLOBALstateOfTheGameList1)
+    print(GLOBALstateOfTheGameList2)
+    return
 
 
 def find_center_coords(contours):
@@ -37,12 +78,13 @@ def draw_circle(point, image, size, color):
     cv2.circle(image, (cX, cY), size, color, -1)
 
 
-def renderGameState(gameStateList):
+def renderGameState():
+    global stateOfTheGameListCapture
     game = cv2.imread("boardForRendering.png")
     height, width, channels = game.shape
     # checker board is 8x8
     boardTileLength = width//8
-    for idxY, stateRow in enumerate(gameStateList):
+    for idxY, stateRow in enumerate(stateOfTheGameListCapture):
        for idxX, stateField in enumerate(stateRow):
             if (stateField == 0):
                continue
@@ -58,44 +100,37 @@ def renderGameState(gameStateList):
                 continue
     return game
 
+
 def fetchImage():
     global url
     with urllib.request.urlopen(url) as response:
         html = response.read()
 
     imgResponse = urllib.request.urlopen(url)
-    imgNumpy = np.array(bytearray(imgResponse.read()),dtype=np.uint8)
+    imgNumpy = np.array(bytearray(imgResponse.read()), dtype=np.uint8)
     img = cv2.imdecode(imgNumpy,-1)
     size = int((img.shape[1] - img.shape[0] )/ 2)
     img = img[:,size:img.shape[0]+size]
 
     return img
 
+
 def ex_1():
     global BLANK
     global GLOBALstateOfTheGameList2
     global GLOBALstateOfTheGameList1
+    global stateOfTheGameListCapture
     global IsEvenCapture
+
+    # zero out previous move
+    stateOfTheGameListCapture = [x[:] for x in [[NO_CHECKER_VALUE] * 8] * 8]
 
     # basic properties
     windowName = "Warcaby"
     kernel = np.ones((5, 5), np.uint8)
 
-    # 0 - no checker
-    # 1 - green checker
-    # 2 - green queen
-    # 3 - red checker
-    # 4 - red queen
-    # game field is 8x8
-    NO_CHECKER_VALUE = 0
-    GREEN_CHECKER_VALUE = 1
-    GREEN_QUEEN_VALUE = 2
-    RED_CHECKER_VALUE = 3
-    RED_QUEEN_VALUE = 4
-    stateOfTheGameList = [x[:] for x in [[NO_CHECKER_VALUE] * 8] * 8]
 
-    # color ranges for checkers detection
-
+    # color ranges for checkers detection - taken from sliders
     hsv_green_lower_sliders = [app.getScale("green_lower H"),   app.getScale("green_lower S"),  app.getScale("green_lower V")]
     hsv_green_upper_sliders = [app.getScale("green_upper H"),   app.getScale("green_upper S"),  app.getScale("green_upper V")]
     hsv_red_lower_sliders   = [app.getScale("red_lower H"),     app.getScale("red_lower S"),    app.getScale("red_lower V")]
@@ -110,19 +145,19 @@ def ex_1():
     hsv_blue_lower  = np.array(hsv_blue_lower_sliders)
     hsv_blue_upper  = np.array(hsv_blue_upper_sliders)
 
+
+    # try fetching image from camera
     try:
         originalRGBImage = fetchImage()
     except urllib.error.URLError as err:
         app.errorBox("Error",err)
         return
-    imageBW = cv2.cvtColor(originalRGBImage, cv2.COLOR_BGR2GRAY)
+
+    # create hsv for markers detection
     image_HSV = cv2.cvtColor(originalRGBImage, cv2.COLOR_BGR2HSV)
 
-    # image shape
+    # image shape - needed if we want to crop the image
     height, width, channels = originalRGBImage.shape
-
-    # add border for checker fields detection
-    imageBW = cv2.copyMakeBorder(imageBW, 2,2,2,2, cv2.BORDER_CONSTANT, value=255)
 
     # detect markers
     # get blue marker mask
@@ -139,17 +174,20 @@ def ex_1():
         hierarchy = []
     min_x, min_y = width, height
     max_x = max_y = 0
-    # computes the bounding box for the contour, and draws it on the frame,
+    # computes the bounding box for the contours, thus we know where to crop
     for contour, hier in zip(blueMarkersContours, hierarchy):
         (x, y, w, h) = cv2.boundingRect(contour)
         min_x, max_x = min(x, min_x), max(x + w, max_x)
         min_y, max_y = min(y, min_y), max(y + h, max_y)
         if max_x - min_x > 0 and max_y - min_y > 0:
-            img_croped = originalRGBImage[min_y+w:max_y-w, min_x+w:max_x-w]
+            img_croped = originalRGBImage[min_y+w-10:max_y-w+10, min_x+w-10:max_x-w+10]
 
-
+    # compute new HSV from cropped image
     image_HSV = cv2.cvtColor(img_croped, cv2.COLOR_BGR2HSV)
+    # new image shape, overwrite previous ones
     height, width, channels = img_croped.shape
+
+
     # checker board is 8x8
     boardTileLength = width/8
 
@@ -184,6 +222,8 @@ def ex_1():
     print(redCheckersCoords)
     print("Board tile len: ")
     print(boardTileLength)
+
+
     for checkerCoord in greenCheckersCoords:
             X_Coord_TMP = checkerCoord[0]
             X_Index_TMP = -1
@@ -195,7 +235,7 @@ def ex_1():
             while (Y_Coord_TMP > 0):
                 Y_Coord_TMP -= boardTileLength
                 Y_Index_TMP += 1
-            stateOfTheGameList[Y_Index_TMP][X_Index_TMP] = GREEN_CHECKER_VALUE
+            stateOfTheGameListCapture[Y_Index_TMP][X_Index_TMP] = GREEN_CHECKER_VALUE
 
            # draw_circle(checkerCoord, originalRGBImage, 7, (255, 0, 170))
            # draw_circle(fieldCoord, originalRGBImage, 7, (255, 0, 0))
@@ -211,21 +251,16 @@ def ex_1():
                 while (Y_Coord_TMP > 0):
                     Y_Coord_TMP -= boardTileLength
                     Y_Index_TMP += 1
-                stateOfTheGameList[Y_Index_TMP][X_Index_TMP] = RED_CHECKER_VALUE
+                stateOfTheGameListCapture[Y_Index_TMP][X_Index_TMP] = RED_CHECKER_VALUE
 
                # draw_circle(checkerCoord, originalRGBImage, 7, (255, 0, 170))
                # draw_circle(fieldCoord, originalRGBImage, 7, (0, 0, 170))
 
-    renderedGame = renderGameState(stateOfTheGameList)
+    renderedGame = renderGameState()
     resizedRenderedGame = cv2.resize(renderedGame, (400, 400))
     cv2.imwrite('renderedGame.jpg', resizedRenderedGame)
 
-    if(IsEvenCapture==False):
-        GLOBALstateOfTheGameList1=stateOfTheGameList
-    else:
-        GLOBALstateOfTheGameList2=stateOfTheGameList
-    print(GLOBALstateOfTheGameList1)
-    print(GLOBALstateOfTheGameList2)
+
 
     # if BLANK == True:
     #     app.startLabelFrame("state", 0, 0)
@@ -244,7 +279,7 @@ def ex_1():
     photo2 = ImageTk.PhotoImage(Image.open("renderedGame.jpg"))
     app.reloadImageData("renderedGame", photo2, fmt="PhotoImage")
 
-    IsEvenCapture = not IsEvenCapture
+
     cv2.destroyAllWindows()
 
 
@@ -276,6 +311,7 @@ def legal_moves(x, y):
     global IsPlayer1
     global hop
     global IsEvenCapture
+    global GLOBALstateOfTheGameList1, GLOBALstateOfTheGameList2
 
     blinds = blind_legal_moves(x, y)
     legal_moves = []
@@ -341,7 +377,13 @@ def check_move():
     global IsPlayer1
     global hop
     global IsEvenCapture
-
+    global GLOBALstateOfTheGameList1, GLOBALstateOfTheGameList2
+    if (IsPlayer1):
+        app.setLabel("Player", "Czerwony")
+        app.setLabelBg("Player", "red")
+    else:
+        app.setLabel("Player", "Zielony")
+        app.setLabelBg("Player", "green")
     amountOfChanges = 0
     for x in range(0, 8):
         if (GLOBALstateOfTheGameList1[x] != GLOBALstateOfTheGameList2[x]):
@@ -445,7 +487,8 @@ def check_move():
         app.setLabel("Status", "RUCH WYKONANY NIEPOPRAWNIE. ZBYT DUŻO ZMIAN POZYCJI PIONKÓW")
         app.setLabelBg("Status", "red")
 
-def click(event):
+
+def click_capture(event):
     global url
     if event == "Capture":
         tempUrl = app.getEntry("IP")
@@ -458,6 +501,9 @@ def click(event):
         url = 'http://' + tempUrl + ':8080/shot.jpg'
         ex_1()
     return
+
+
+
 
 if __name__ == "__main__":
     ranges = {
@@ -501,10 +547,12 @@ if __name__ == "__main__":
 
     app.startTab("Game")
 
-    app.addButton("Capture", click, row=1, column=0)
+    app.addButton("Capture", click_capture, row=1, column=0)
     app.addButton("Check Move", check_move, row=1, column=1)
-    app.addLabel("Status", "", row=2, colspan=3)
-    
+    app.addButton("Save move", save_move, row=2, column=0)
+    app.addLabel("Player", "", row=2, column=1)
+    app.addLabel("Status", "", row=3, colspan=3)
+
     app.startLabelFrame("Captured Image", 0, 0)
     photo1 = ImageTk.PhotoImage(Image.open("initCapturedImage.jpg"))
     app.addImageData("state", photo1, fmt="PhotoImage")
