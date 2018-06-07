@@ -191,14 +191,22 @@ def ex_1():
                     Y_Coord_TMP -= boardTileLength
                     Y_Index_TMP += 1
                 stateOfTheGameListCapture[Y_Index_TMP][X_Index_TMP] = RED_CHECKER_VALUE
+    loadImagesToFrames(False)
 
+
+    cv2.destroyAllWindows()
+
+def loadImagesToFrames(is_rollback):
     renderedGame = graphicsEngine.renderGameState()
     resizedRenderedGame = cv2.resize(renderedGame, (400, 400))
     cv2.imwrite('images/renderedGame.jpg', resizedRenderedGame)
 
-    photo1 = ImageTk.PhotoImage(Image.open("images/screen1.jpg"))
-    app.reloadImageData("state", photo1, fmt="PhotoImage")
+    if(is_rollback):
+        photo1 = ImageTk.PhotoImage(Image.open("images/initCapturedImage.jpg"))
+        app.reloadImageData("state", photo1, fmt="PhotoImage")
+    else:
+        photo1 = ImageTk.PhotoImage(Image.open("images/screen1.jpg"))
+        app.reloadImageData("state", photo1, fmt="PhotoImage")
+
     photo2 = ImageTk.PhotoImage(Image.open("images/renderedGame.jpg"))
     app.reloadImageData("renderedGame", photo2, fmt="PhotoImage")
-
-    cv2.destroyAllWindows()

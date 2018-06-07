@@ -1,7 +1,6 @@
 import GUI
 import engine
 
-
 def save_move():
     if(engine.IsEvenCapture == False):
         engine.GLOBALstateOfTheGameList1 = engine.stateOfTheGameListCapture
@@ -33,8 +32,11 @@ def save_move():
 def rollback():
     if(engine.IsEvenCapture == False):
         engine.GLOBALstateOfTheGameList1 = engine.GLOBALstateOfThePreviousMove
+        engine.stateOfTheGameListCapture = engine.GLOBALstateOfThePreviousMove
     else:
         engine.GLOBALstateOfTheGameList2 = engine.GLOBALstateOfThePreviousMove
+        engine.stateOfTheGameListCapture = engine.GLOBALstateOfThePreviousMove
+
     engine.IsPlayer1 = not engine.IsPlayer1
     engine.IsEvenCapture = not engine.IsEvenCapture
 
@@ -42,6 +44,10 @@ def rollback():
         GUI.setLabel("Player", "red", "Czerwony")
     else:
         GUI.setLabel("Player", "green", "Zielony")
+
+    engine.loadImagesToFrames(True)
+    GUI.setLabel("Status", "white", "")
+
     return
 
 def legal_moves(x, y):
